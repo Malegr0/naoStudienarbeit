@@ -1,3 +1,5 @@
+import spacy
+
 sampleText = "Den Körper trainieren viele Menschen. Aber wer trainiert auch sein Gehirn? „Das Gehirn muss genauso " \
              "trainiert werden wie der Körper“, sagt Professor Siegfried Lehrl von der Universität Erlangen-Nürnberg. " \
              "Denn wissenschaftliche Untersuchungen haben gezeigt, dass wir die Leistungsfähigkeit unseres Gehirns um " \
@@ -20,6 +22,13 @@ sampleText = "Den Körper trainieren viele Menschen. Aber wer trainiert auch sei
              "in dem neue Informationen im sogenannten Kurzzeitgedächtnis präsent[3] sind. Er umfasst normalerweise " \
              "bis zu fünf Sekunden. Wenn nun durch Gehirn-Jogging dieser Zeitraum erreicht oder sogar noch " \
              "ausgeweitet wird, können wir mehr Informationen länger behalten und schneller verarbeiten. "
+
+nlp = spacy.load("de_core_news_sm")
+doc = nlp(sampleText)
+
+for token in doc:
+    print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_, token.shape_, token.is_alpha, token.is_stop)
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':

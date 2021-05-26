@@ -1,0 +1,3 @@
+[spacy_models]
+de_core_news_sm = de_core_news_sm
+
