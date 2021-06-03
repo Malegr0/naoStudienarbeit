@@ -18,11 +18,11 @@ This project was built using following frameworks:
   - [Flask](https://flask.palletsprojects.com/en/2.0.x/)
   - [MariaDB Connector](https://mariadb.com/de/resources/blog/how-to-connect-python-programs-to-mariadb/)
 
-For this project we are using the german trained pipeline for spacy. Other pipelines can be found [here](https://spacy.io/usage).
+For this project we are using the german trained pipeline for SpaCy. Other pipelines can be found [here](https://spacy.io/usage).
 Note that you can't use our database if you are using another pipeline.
 
 ## Getting Started
-This project is written in python.
+This project is written in python 3.
 
 ### Prerequisites
 Pip is needed for the following installation.
