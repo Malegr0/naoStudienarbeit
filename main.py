@@ -1,3 +1,5 @@
+import server
+
 sampleText = "Den Körper trainieren viele Menschen. Aber wer trainiert auch sein Gehirn? „Das Gehirn muss genauso " \
              "trainiert werden wie der Körper“, sagt Professor Siegfried Lehrl von der Universität Erlangen-Nürnberg. " \
              "Denn wissenschaftliche Untersuchungen haben gezeigt, dass wir die Leistungsfähigkeit unseres Gehirns um " \
@@ -23,4 +25,5 @@ sampleText = "Den Körper trainieren viele Menschen. Aber wer trainiert auch sei
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    server.app.run()
     print("Successfully executed!")
