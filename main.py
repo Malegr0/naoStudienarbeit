@@ -1,3 +1,6 @@
+#!/usr/bin/python
+#-*- coding:utf-8 -*-
+
 sampleText = "Den Körper trainieren viele Menschen. Aber wer trainiert auch sein Gehirn? „Das Gehirn muss genauso " \
              "trainiert werden wie der Körper“, sagt Professor Siegfried Lehrl von der Universität Erlangen-Nürnberg. " \
              "Denn wissenschaftliche Untersuchungen haben gezeigt, dass wir die Leistungsfähigkeit unseres Gehirns um " \
