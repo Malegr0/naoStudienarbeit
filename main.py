@@ -1,5 +1,5 @@
 import spacy
-from sentenceAlgorithm import sentence_detection
+import sentenceAlgorithm
 
 sampleText = "Den Körper trainieren viele Menschen. Aber wer trainiert auch sein Gehirn? „Das Gehirn muss genauso " \
              "trainiert werden wie der Körper“, sagt Professor Siegfried Lehrl von der Universität Erlangen-Nürnberg. " \
@@ -25,8 +25,8 @@ sampleText = "Den Körper trainieren viele Menschen. Aber wer trainiert auch sei
              "ausgeweitet wird, können wir mehr Informationen länger behalten und schneller verarbeiten. "
 
 nlp = spacy.load("de_core_news_sm")
-
-sentence_detection(nlp("Wie lange gibt es die HWR?"))
+doc = nlp("Wie viele Fachbereiche gibt es hier?")
+sentenceAlgorithm.sentence_detection(doc)
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
