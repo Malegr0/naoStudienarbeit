@@ -6,11 +6,11 @@ nlp = spacy.load("de_core_news_sm")
 def initialize_array(array_length):
     global found_words
 
-    found_words = [["0" for i in range(array_length)] for j in range(14)]
+    found_words = [[None for i in range(array_length)] for j in range(14)]
     all_tags = ["ADJ","ADP","ADV","CONJ","CCONJ","DET","INTJ","NOUN","NUM","PART","PRON","PROPN","SCONJ","VERB"]
     for x in range(14):
         found_words[x] = all_tags[x]
-        #print(type(found_words[i]))
+        print(len(found_words[0]))
 
 
 def sentence_detection(sentence):
@@ -43,11 +43,11 @@ def check_specific():
     elif token.tag_ == "PROAV":
         pass  # print("Der Tag "" + tag + "" ist rausgeflogen.")
     else:
-        for i in range(14):
-            if token.pos_ == found_words[i] and found_words[i][0] != "0":
-                word = str(token.lemma_)
-                found_words[i][0] = word
-                print("Wort: " + str(found_words[i]))
+        #for i in range(14):
+            #if token.pos_ == found_words[i] and found_words[i][0] != "0":
+                #word = str(token.lemma_)
+                #found_words[0][0] = word
+                #print("Wort: " + str(found_words[i]))
         print(str(token.lemma_) + " - " + str(token.pos_) + " - " + str(token.tag_) + " - " + spacy.explain(token.tag_))
 
 
