@@ -1,5 +1,5 @@
 import sys
-import mariadb
+from mariadb import Error, connect
 
 # global variables
 conn = None
@@ -9,13 +9,13 @@ cur = None
 def init_db_connection():
     try:
         global conn
-        conn = mariadb.connect(
+        conn = connect(
             user="root",
             password="Asube-2019!",
             host="127.0.0.1",
             database="nao"
         )
-    except mariadb.Error as e:
+    except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
 
