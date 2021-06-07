@@ -16,7 +16,7 @@ def init_db_connection():
             database="nao"
         )
     except mariadb.Error as e:
-        print(f"Error connecting to MariaDB Platform: {e}")
+        print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
 
     # Get cursor
