@@ -3,52 +3,86 @@ import spacy
 nlp = spacy.load("de_core_news_sm")
 
 
-def initialize_array(array_length):
-    global found_words
-
-    found_words = [[None for i in range(array_length)] for j in range(14)]
-    all_tags = ["ADJ","ADP","ADV","CONJ","CCONJ","DET","INTJ","NOUN","NUM","PART","PRON","PROPN","SCONJ","VERB"]
-    for x in range(14):
-        found_words[x] = all_tags[x]
-        print(len(found_words[0]))
-
-
+# Funktion erhält deen erkannten Satz und verarbeitet diesen pro Wort in einer Schleife.
+# Das erste Wort wird in Lowercase umgewandelt, um Erkennungsfehler zu vermeiden.
+# Danach wird das Wort genauestens untersucht. Am Ende wird der Originalsatz mit dem nun gekürzten Satz verglichen.
 def sentence_detection(sentence):
     global token
+    global found_words
+    new_sentence = ""
 
-    initialize_array(len(sentence))
+    found_words = []
     for token in sentence:
         token.lemma_ = token.lemma_.lower()
         check_word()
+    print("Drin geblieben:")
+    for x in range(len(found_words)):
+        print(found_words[x])
+    print("Originalsatz:"
+          "\n " + str(sentence) +
+          "\n -----------------------")
+    print("Neuer Satz:")
+    for y in range(len(found_words)):
+        new_sentence = new_sentence + " " + found_words[y][1]
+    print(new_sentence + "\n -----------------------")
 
-        #print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_, token.shape_, token.is_alpha, token.is_stop)
 
-
+# Als erstes wird der POS untersucht. Wenn einer der Fälle eintritt, wird das Wort nicht weiter beachtet,
+# sondern in der Konsole mit einigen Daten ausgegeben. Kommt das Wort in keinen der Fälle,
+# wird es in einer weiteren Funktion auf den TAG überprüft.
 def check_word():
     if token.pos_ == "AUX":
-        pass  # print("Der UPOS-Tag "" + upos + "" ist rausgeflogen.")
+        print("Rausgeflogen wegen POS:"
+              " \n Text: " + token.text +
+              " \n Lemma: " + token.lemma_ +
+              " \n Pos: " + token.pos_ +
+              " \n Tag: " + token.tag_ +
+              " \n -----------------------")
     elif token.pos_ == "PUNCT":
-        pass  # print("Der UPOS-Tag "" + upos + "" ist rausgeflogen.")
+        print("Rausgeflogen wegen POS:"
+              " \n Text: " + token.text +
+              " \n Lemma: " + token.lemma_ +
+              " \n Pos: " + token.pos_ +
+              " \n Tag: " + token.tag_ +
+              " \n -----------------------")
     else:
         check_specific()
 
 
+# Nach dem POS wird der TAG untersucht. Wenn einer der Fälle eintritt, wird das Wort nicht gespeichert,
+# sondern in der Konsole mit einigen Daten ausgegeben. Kommt das Wort in keinen der Fälle wird es zusammen mit
+# dem POS als Liste in die Liste "found_words" eingefügt.
 def check_specific():
     if token.tag_ == "PPER":
-        pass  # print("Der Tag "" + tag + "" ist rausgeflogen.")
+        print("Rausgeflogen wegen TAG:"
+              " \n Text: " + token.text +
+              " \n Lemma: " + token.lemma_ +
+              " \n Pos: " + token.pos_ +
+              " \n Tag: " + token.tag_ +
+              " \n -----------------------")
     elif token.tag_ == "ART":
-        pass  # print("Der Tag "" + tag + "" ist rausgeflogen.")
+        print("Rausgeflogen wegen TAG:"
+              " \n Text: " + token.text +
+              " \n Lemma: " + token.lemma_ +
+              " \n Pos: " + token.pos_ +
+              " \n Tag: " + token.tag_ +
+              " \n -----------------------")
     elif token.tag_ == "ADJD":
-        pass  # print("Der Tag "" + tag + "" ist rausgeflogen.")
+        print("Rausgeflogen wegen TAG:"
+              " \n Text: " + token.text +
+              " \n Lemma: " + token.lemma_ +
+              " \n Pos: " + token.pos_ +
+              " \n Tag: " + token.tag_ +
+              " \n -----------------------")
     elif token.tag_ == "PROAV":
-        pass  # print("Der Tag "" + tag + "" ist rausgeflogen.")
+        print("Rausgeflogen wegen TAG:"
+              " \n Text: " + token.text +
+              " \n Lemma: " + token.lemma_ +
+              " \n Pos: " + token.pos_ +
+              " \n Tag: " + token.tag_ +
+              " \n -----------------------")
     else:
-        #for i in range(14):
-            #if token.pos_ == found_words[i] and found_words[i][0] != "0":
-                #word = str(token.lemma_)
-                #found_words[0][0] = word
-                #print("Wort: " + str(found_words[i]))
-        print(str(token.lemma_) + " - " + str(token.pos_) + " - " + str(token.tag_) + " - " + spacy.explain(token.tag_))
+        found_words.append([token.pos_, token.lemma_])
 
 
 # Press the green button in the gutter to run the script.
