@@ -31,5 +31,6 @@ sampleText = "Den Körper trainieren viele Menschen. Aber wer trainiert auch sei
 if __name__ == '__main__':
     # server.app.run()
     db_connector.init_db_connection()
+    db_connector.get_all_synonyms()
     db_connector.close_db_connection()
     print("Successfully executed!")

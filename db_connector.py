@@ -6,6 +6,13 @@ conn = None
 cur = None
 
 
+def get_all_synonyms():
+    list = cur.execute("SELECT word, synonym FROM synonyms")
+    print(list)
+    #for word, synonym in cur:
+        #TODO: result of sql request need to be added to a list
+
+
 def init_db_connection():
     try:
         global conn
