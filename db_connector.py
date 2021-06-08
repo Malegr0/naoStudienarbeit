@@ -7,12 +7,12 @@ cur = None
 
 
 def get_all_synonyms():
-    cur.execute("SELECT word, synonym FROM synonyms")
+    cur.execute("SELECT synonym, generic_term FROM synonyms")
     list = []
-    for word, synonym in cur:
+    for synonym, generic_term in cur:
         dictionary = {
-            "word": word,
-            "synonym": synonym
+            "synonym": synonym,
+            "generic_term": generic_term
         }
         list.append(dictionary)
     print(list)
