@@ -7,10 +7,16 @@ cur = None
 
 
 def get_all_synonyms():
-    list = cur.execute("SELECT word, synonym FROM synonyms")
+    cur.execute("SELECT word, synonym FROM synonyms")
+    list = []
+    for word, synonym in cur:
+        dictionary = {
+            "word": word,
+            "synonym": synonym
+        }
+        list.append(dictionary)
     print(list)
-    #for word, synonym in cur:
-        #TODO: result of sql request need to be added to a list
+
 
 
 def init_db_connection():
