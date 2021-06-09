@@ -1,8 +1,5 @@
-import spacy
 import word
-
-nlp = spacy.load("de_core_news_sm")
-
+import spacy
 
 # Funktion erhält deen erkannten Satz und verarbeitet diesen pro Wort in einer Schleife.
 # Das erste Wort wird in Lowercase umgewandelt, um Erkennungsfehler zu vermeiden.
@@ -29,6 +26,8 @@ def sentence_detection(sentence):
     for checked_word in found_words:
         new_sentence = new_sentence + " " + word.Word.get_lemma(checked_word)
     print(new_sentence + "\n -----------------------")
+    print(spacy.explain("PWAV"))
+    print(spacy.explain("cm"))
 
 
 # Als erstes wird der POS untersucht. Wenn einer der Fälle eintritt, wird das Wort nicht weiter beachtet,
@@ -41,6 +40,7 @@ def check_word():
               " \nLemma: " + token.lemma_ +
               " \nPos: " + token.pos_ +
               " \nTag: " + token.tag_ +
+              " \nDep: " + token.dep_ +
               " \n-----------------------")
     elif token.pos_ == "PUNCT":
         print("Rausgeflogen wegen POS:"
@@ -48,6 +48,7 @@ def check_word():
               " \nLemma: " + token.lemma_ +
               " \nPos: " + token.pos_ +
               " \nTag: " + token.tag_ +
+              " \nDep: " + token.dep_ +
               " \n-----------------------")
     else:
         check_specific()
@@ -63,6 +64,7 @@ def check_specific():
               " \nLemma: " + token.lemma_ +
               " \nPos: " + token.pos_ +
               " \nTag: " + token.tag_ +
+              " \nDep: " + token.dep_ +
               " \n-----------------------")
     elif token.tag_ == "ART":
         print("Rausgeflogen wegen TAG:"
@@ -70,6 +72,7 @@ def check_specific():
               " \nLemma: " + token.lemma_ +
               " \nPos: " + token.pos_ +
               " \nTag: " + token.tag_ +
+              " \nDep: " + token.dep_ +
               " \n-----------------------")
     elif token.tag_ == "ADJD":
         print("Rausgeflogen wegen TAG:"
@@ -77,6 +80,7 @@ def check_specific():
               " \nLemma: " + token.lemma_ +
               " \nPos: " + token.pos_ +
               " \nTag: " + token.tag_ +
+              " \nDep: " + token.dep_ +
               " \n-----------------------")
     elif token.tag_ == "PROAV":
         print("Rausgeflogen wegen TAG:"
@@ -84,12 +88,8 @@ def check_specific():
               " \nLemma: " + token.lemma_ +
               " \nPos: " + token.pos_ +
               " \nTag: " + token.tag_ +
+              " \nDep: " + token.dep_ +
               " \n-----------------------")
     else:
-        new_word = word.Word(token.pos_, token.tag_, token.lemma_)
+        new_word = word.Word(token.pos_, token.tag_, token.lemma_, token.dep_)
         found_words.append(new_word)
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print("Successfully executed!")
