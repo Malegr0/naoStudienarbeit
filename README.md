@@ -24,7 +24,7 @@ For this project we are using the german trained pipeline for SpaCy. Other pipel
 Note that you can't use our database if you are using another pipeline.
 
 ## Getting Started
-This project is written in python 3.
+This project is written in python 3.9
 
 ### Prerequisites
 Pip is needed for the following installation.
@@ -54,11 +54,15 @@ create database nao;
 ```
 3. Create a table called synonyms.
 ```
-create table nao.synonyms(word varchar(255), synonym varchar(255);
+create table nao.synonyms (synonym varchar(255), id int);
 ```
-4. Create a table called answers.
+4. Create a table called generic_terms.
 ```
-Needs to be completed.
+create table nao.generic_terms (id int, generic_term varchar(255));
+```
+5. Create a table called matching_table.
+```
+create table nao.matching_table (caseID int, keywords text, asnwer text);
 ```
 
 ### Insert Data
