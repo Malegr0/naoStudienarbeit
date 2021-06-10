@@ -18,6 +18,19 @@ def get_all_synonyms():
     print(list)
 
 
+def get_generic_term(synonym):
+    cur.execute("SELECT id FROM synonyms WHERE synonym=?", synonym)
+    synonym_id = cur
+    cur.execute("SELECT generic_terms FROM generic_terms WHERE id=?", synonym_id)
+    generic_term = cur
+    # TODO: add checks for wrong returns
+    return generic_term
+
+
+def get_answer(case_id):
+    cur.execute("SELECT answer FROM matching_table WHERE caseID=?", case_id)
+    return cur
+
 
 def init_db_connection():
     try:
