@@ -34,62 +34,30 @@ def sentence_detection(sentence):
 # sondern in der Konsole mit einigen Daten ausgegeben. Kommt das Wort in keinen der Fälle,
 # wird es in einer weiteren Funktion auf den TAG überprüft.
 def check_word():
-    if token.pos_ == "AUX":
-        print("Rausgeflogen wegen POS:"
-              " \nText: " + token.text +
-              " \nLemma: " + token.lemma_ +
-              " \nPos: " + token.pos_ +
-              " \nTag: " + token.tag_ +
-              " \nDep: " + token.dep_ +
-              " \n-----------------------")
-    elif token.pos_ == "PUNCT":
-        print("Rausgeflogen wegen POS:"
-              " \nText: " + token.text +
-              " \nLemma: " + token.lemma_ +
-              " \nPos: " + token.pos_ +
-              " \nTag: " + token.tag_ +
-              " \nDep: " + token.dep_ +
-              " \n-----------------------")
-    else:
+    if not (token.tag_ == "AUX" or token.tag_ == "PUNCT"):
         check_specific()
+    else:
+        print("Rausgeflogen wegen POS:"
+              " \nText: " + token.text +
+              " \nLemma: " + token.lemma_ +
+              " \nPos: " + token.pos_ +
+              " \nTag: " + token.tag_ +
+              " \nDep: " + token.dep_ +
+              " \n-----------------------")
 
 
 # Nach dem POS wird der TAG untersucht. Wenn einer der Fälle eintritt, wird das Wort nicht gespeichert,
 # sondern in der Konsole mit einigen Daten ausgegeben. Kommt das Wort in keinen der Fälle wird es zusammen mit
 # dem POS als Liste in die Liste "found_words" eingefügt.
 def check_specific():
-    if token.tag_ == "PPER":
-        print("Rausgeflogen wegen TAG:"
-              " \nText: " + token.text +
-              " \nLemma: " + token.lemma_ +
-              " \nPos: " + token.pos_ +
-              " \nTag: " + token.tag_ +
-              " \nDep: " + token.dep_ +
-              " \n-----------------------")
-    elif token.tag_ == "ART":
-        print("Rausgeflogen wegen TAG:"
-              " \nText: " + token.text +
-              " \nLemma: " + token.lemma_ +
-              " \nPos: " + token.pos_ +
-              " \nTag: " + token.tag_ +
-              " \nDep: " + token.dep_ +
-              " \n-----------------------")
-    elif token.tag_ == "ADJD":
-        print("Rausgeflogen wegen TAG:"
-              " \nText: " + token.text +
-              " \nLemma: " + token.lemma_ +
-              " \nPos: " + token.pos_ +
-              " \nTag: " + token.tag_ +
-              " \nDep: " + token.dep_ +
-              " \n-----------------------")
-    elif token.tag_ == "PROAV":
-        print("Rausgeflogen wegen TAG:"
-              " \nText: " + token.text +
-              " \nLemma: " + token.lemma_ +
-              " \nPos: " + token.pos_ +
-              " \nTag: " + token.tag_ +
-              " \nDep: " + token.dep_ +
-              " \n-----------------------")
-    else:
+    if not (token.tag_ == "PPER" or token.tag_ == "ART" or token.tag_ == "ADJD" or token.tag_ == "PROAV"):
         new_word = word.Word(token.pos_, token.tag_, token.lemma_, token.dep_)
         found_words.append(new_word)
+    else:
+        print("Rausgeflogen wegen TAG:"
+              " \nText: " + token.text +
+              " \nLemma: " + token.lemma_ +
+              " \nPos: " + token.pos_ +
+              " \nTag: " + token.tag_ +
+              " \nDep: " + token.dep_ +
+              " \n-----------------------")
