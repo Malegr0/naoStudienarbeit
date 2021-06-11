@@ -1,6 +1,7 @@
 import word
 import spacy
 
+
 # Funktion erhält deen erkannten Satz und verarbeitet diesen pro Wort in einer Schleife.
 # Das erste Wort wird in Lowercase umgewandelt, um Erkennungsfehler zu vermeiden.
 # Danach wird das Wort genauestens untersucht. Am Ende wird der Originalsatz mit dem nun gekürzten Satz verglichen.
@@ -12,7 +13,6 @@ def sentence_detection(sentence):
     found_words = []
 
     for token in sentence:
-        token.lemma_ = token.lemma_.lower()
         check_word()
     print("Drin geblieben:"
           "\nPos - Tag - Lemma \n")
@@ -34,7 +34,7 @@ def sentence_detection(sentence):
 # sondern in der Konsole mit einigen Daten ausgegeben. Kommt das Wort in keinen der Fälle,
 # wird es in einer weiteren Funktion auf den TAG überprüft.
 def check_word():
-    if not (token.tag_ == "AUX" or token.tag_ == "PUNCT"):
+    if not (token.pos_ == "AUX" or token.pos_ == "PUNCT"):
         check_specific()
     else:
         print("Rausgeflogen wegen POS:"
