@@ -45,7 +45,7 @@ def get_generic_term(synonym: str) -> str:
 
 
 # TODO: add check for wrong case_id, raise InvalidCaseIDError
-def get_answer(case_id) -> str:
+def get_answer(case_id: int) -> str:
     """Returns the answer for case_id
 
     ADD DESCRIPTION
@@ -56,6 +56,28 @@ def get_answer(case_id) -> str:
     """
     cur.execute("SELECT answer FROM matching_table WHERE caseID=?", case_id)
     return cur
+
+
+def get_all_caseID(keywords: list[str]) -> int:
+    caseIDs = list[dict]
+    for keyword in keywords:
+        cur.execute("SELECT caseID FROM matching_table WHERE keywords=?", keyword)
+        for caseID in cur:
+            if check_case_id(caseID, caseIDs):
+
+            else:
+                elem = {
+                    "caseID": caseID,
+                    "count": 1
+                }
+                caseIDs.append(elem)
+
+
+def check_case_id(case_id: int, case_ids: list[dict]) -> bool:
+    for element in case_ids:
+        if case_id == element["caseID"]:
+            return True
+    return False
 
 
 def init_db_connection():
