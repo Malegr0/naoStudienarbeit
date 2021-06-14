@@ -80,8 +80,8 @@ def check_case_id(case_id: int, case_ids: list[dict]) -> bool:
     return False
 
 
-def insert_answers(caseID: int, keywords: str, answer: str):
-    cur.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (caseID, keywords, answer))
+def insert_answers(case_id: int, keywords: str, answer: str):
+    cur.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (case_id, keywords, answer))
 
 
 def insert_generic_terms(id: int, generic_term: str):
