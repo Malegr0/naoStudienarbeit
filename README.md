@@ -21,7 +21,7 @@ This project was built using following frameworks:
   - [MariaDB Connector](https://mariadb.com/de/resources/blog/how-to-connect-python-programs-to-mariadb/)
 
 For this project we are using the german trained pipeline for SpaCy. Other pipelines can be found [here](https://spacy.io/usage).
-Note that you can't use our database if you are using another pipeline.
+Note that you can't use our database if you are using another pipelines and/or languages.
 
 ## Getting Started
 This project is written in python 3.9
@@ -67,8 +67,8 @@ create table nao.matching_table (caseID int, keywords text, asnwer text);
 
 ### Insert Data
 1. Open another terminal.
-2. Navigate to FOLDER in the cloned repository.
-3. Run FILE.py to fill both tables with our data.
+2. Navigate to the folder data_inserter in the cloned repository.
+3. Run main.py to fill each tables with our data.
 ```
-python FILE.py
+python main.py
 ```
