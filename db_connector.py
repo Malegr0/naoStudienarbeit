@@ -80,15 +80,37 @@ def check_case_id(case_id: int, case_ids: list[dict]) -> bool:
     return False
 
 
+# TODO: Add checks for arguments to catch wrong data
 def insert_answers(case_id: int, keywords: str, answer: str):
+    """Insert data into matching table
+
+    :param case_id: The id as integer of the specific answer.
+    :param keywords: Each keyword as string to identify the answer.
+    :param answer: The answer as string which will be said by nao.
+    :return:
+    """
     cur.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (case_id, keywords, answer))
 
 
+# TODO: Add checks for arguments to catch wrong data
 def insert_generic_terms(id: int, generic_term: str):
+    """Insert data into generics terms table
+
+    :param id: ID as integer of the specific generic term.
+    :param generic_term: The generic term as string.
+    :return:
+    """
     cur.execute("INSERT INTO generic_terms (id, generic_term) VALUES (?, ?)", (id, generic_term))
 
 
+# TODO: Add checks for arguments to catch wrong data
 def insert_synonyms(synonym: str, id: int):
+    """Insert data into synonyms table
+
+    :param synonym: Synonym as string.
+    :param id: ID as integer which will represent the generic term.
+    :return:
+    """
     cur.execute("INSERT INTO synonyms (synonym, id) VALUES (?, ?)", (synonym, id))
 
 
