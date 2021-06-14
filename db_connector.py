@@ -64,7 +64,7 @@ def get_all_caseID(keywords: list[str]) -> int:
         cur.execute("SELECT caseID FROM matching_table WHERE keywords=?", keyword)
         for caseID in cur:
             if check_case_id(caseID, caseIDs):
-
+                pass
             else:
                 elem = {
                     "caseID": caseID,
@@ -78,6 +78,18 @@ def check_case_id(case_id: int, case_ids: list[dict]) -> bool:
         if case_id == element["caseID"]:
             return True
     return False
+
+
+def insert_answers(caseID: int, keywords: str, answer: str):
+    cur.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (caseID, keywords, answer))
+
+
+def insert_generic_terms(id: int, generic_term: str):
+    cur.execute("INSERT INTO generic_terms (id, generic_term) VALUES (?, ?)", (id, generic_term))
+
+
+def insert_synonyms(synonym: str, id: int):
+    cur.execute("INSERT INTO synonyms (synonym, id) VALUES (?, ?)", (synonym, id))
 
 
 def init_db_connection():
