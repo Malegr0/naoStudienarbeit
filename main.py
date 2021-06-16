@@ -26,8 +26,8 @@ sampleText = "Den Körper trainieren viele Menschen. Aber wer trainiert auch sei
              "ausgeweitet wird, können wir mehr Informationen länger behalten und schneller verarbeiten. "
 
 nlp = spacy.load("de_core_news_sm")
-detected_sentence = "Nenne alle Studieninhalte?"
-doc = nlp(detected_sentence.lower())
+detected_sentence = "Studiengang"
+doc = nlp(detected_sentence)
 sentence_algorithm.sentence_detection(doc)
 
 # Press the green button in the gutter to run the script.
