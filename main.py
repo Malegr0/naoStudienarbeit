@@ -29,7 +29,7 @@ sampleText = "Den Körper trainieren viele Menschen. Aber wer trainiert auch sei
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    server.app.run()
+    server.app.run(port=5050)
     #db_connector.init_db_connection()
     #db_connector.get_all_synonyms()
     #db_connector.close_db_connection()
