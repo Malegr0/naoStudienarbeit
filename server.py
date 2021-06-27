@@ -27,6 +27,7 @@ def post_answer():
     keywords = request.form.get('keywords')
     answer = request.form.get('answer')
     db_connector.insert_answers(case_id, keywords, answer)
+    return 'OK'
 
 
 @app.route('/genericTerms', methods=['POST'])
@@ -34,6 +35,7 @@ def post_generic_term():
     gn_id = request.form.get('id')
     generic_term = request.form.get('generic_term')
     db_connector.insert_generic_terms(gn_id, generic_term)
+    return 'OK'
 
 
 @app.route('/synonyms', methods=['POST'])
@@ -41,3 +43,4 @@ def post_synonyms():
     synonym = request.form.get('synonym')
     syn_id = request.form.get('id')
     db_connector.insert_synonyms(synonym, syn_id)
+    return 'OK'
