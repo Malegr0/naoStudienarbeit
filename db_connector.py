@@ -58,26 +58,26 @@ def get_answer(case_id: int) -> str:
     return cur
 
 
-def get_all_caseID(keywords: list[str]) -> int:
-    caseIDs = list[dict]
-    for keyword in keywords:
-        cur.execute("SELECT caseID FROM matching_table WHERE keywords=?", keyword)
-        for caseID in cur:
-            if check_case_id(caseID, caseIDs):
-                pass
-            else:
-                elem = {
-                    "caseID": caseID,
-                    "count": 1
-                }
-                caseIDs.append(elem)
+# def get_all_caseID(keywords: list[str]) -> int:
+#     caseIDs = list[dict]
+#     for keyword in keywords:
+#         cur.execute("SELECT caseID FROM matching_table WHERE keywords=?", keyword)
+#         for caseID in cur:
+#             if check_case_id(caseID, caseIDs):
+#                 pass
+#             else:
+#                 elem = {
+#                     "caseID": caseID,
+#                     "count": 1
+#                 }
+#                 caseIDs.append(elem)
 
 
-def check_case_id(case_id: int, case_ids: list[dict]) -> bool:
-    for element in case_ids:
-        if case_id == element["caseID"]:
-            return True
-    return False
+# def check_case_id(case_id: int, case_ids: list[dict]) -> bool:
+#     for element in case_ids:
+#         if case_id == element["caseID"]:
+#             return True
+#     return False
 
 
 # TODO: Add checks for arguments to catch wrong data
