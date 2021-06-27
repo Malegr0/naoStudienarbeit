@@ -8,23 +8,23 @@ cur = None
 
 
 # TODO: Add check for empty list, raise EmptyListError
-def get_all_synonyms() -> list[dict]:
-    """Return all synonyms
-
-    ADD DESCRIPTION
-
-    :return: Returns a list of dictionaries with all synonyms.
-    :raise EmptyListError: emptyList
-    """
-    cur.execute("SELECT synonym, id FROM synonyms")
-    list = []
-    for synonym, synonym_id in cur:
-        dictionary = {
-            "synonym": synonym,
-            "generic_term": synonym_id
-        }
-        list.append(dictionary)
-    return list
+# def get_all_synonyms() -> list[dict]:
+#     """Return all synonyms
+#
+#     ADD DESCRIPTION
+#
+#     :return: Returns a list of dictionaries with all synonyms.
+#     :raise EmptyListError: emptyList
+#     """
+#     cur.execute("SELECT synonym, id FROM synonyms")
+#     list = []
+#     for synonym, synonym_id in cur:
+#         dictionary = {
+#             "synonym": synonym,
+#             "generic_term": synonym_id
+#         }
+#         list.append(dictionary)
+#     return list
 
 
 # TODO: add checks for wrong returns, raise Error
