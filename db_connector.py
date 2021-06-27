@@ -104,6 +104,7 @@ def insert_answers(case_id: int, keywords: str, answer: str):
     # Get cursor
     curr = conne.cursor()
     curr.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (case_id, keywords, answer))
+    conne.commit()
     conne.close()
     print("Answer inserted with case_id=" + case_id + ", keywords=" + keywords + " and answer=" + answer)
 
@@ -131,6 +132,7 @@ def insert_generic_terms(id: int, generic_term: str):
     # Get cursor
     curr = conne.cursor()
     curr.execute("INSERT INTO generic_terms (id, generic_term) VALUES (?, ?)", (id, generic_term))
+    conne.commit()
     conne.close()
     print("Generic term inserted with id=" + id + " and generic_term=" + generic_term)
 
@@ -158,6 +160,7 @@ def insert_synonyms(synonym: str, id: int):
     # Get cursor
     curr = conne.cursor()
     curr.execute("INSERT INTO synonyms (synonym, id) VALUES (?, ?)", (synonym, id))
+    conne.commit()
     conne.close()
     print("Synonym inserted with synonym=" + synonym + " and id=" + id)
 
