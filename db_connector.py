@@ -134,9 +134,11 @@ def init_db_connection():
     # Get cursor
     global cur
     cur = conn.cursor()
+    print("Database connection initialized!")
 
 
 def close_db_connection():
     """Close Database Connection
     """
     conn.close()
+    print("Database connection closed!")
