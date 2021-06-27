@@ -89,7 +89,22 @@ def insert_answers(case_id: int, keywords: str, answer: str):
     :param answer: The answer as string which will be said by nao.
     :return:
     """
-    cur.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (case_id, keywords, answer))
+    try:
+        conne = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao"
+        )
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    # Get cursor
+    curr = conne.cursor()
+    curr.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (case_id, keywords, answer))
+    conne.close()
     print("Answer inserted with case_id=" + case_id + ", keywords=" + keywords + " and answer=" + answer)
 
 
@@ -101,7 +116,22 @@ def insert_generic_terms(id: int, generic_term: str):
     :param generic_term: The generic term as string.
     :return:
     """
-    cur.execute("INSERT INTO generic_terms (id, generic_term) VALUES (?, ?)", (id, generic_term))
+    try:
+        conne = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao"
+        )
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    # Get cursor
+    curr = conne.cursor()
+    curr.execute("INSERT INTO generic_terms (id, generic_term) VALUES (?, ?)", (id, generic_term))
+    conne.close()
     print("Generic term inserted with id=" + id + " and generic_term=" + generic_term)
 
 
@@ -113,7 +143,22 @@ def insert_synonyms(synonym: str, id: int):
     :param id: ID as integer which will represent the generic term.
     :return:
     """
-    cur.execute("INSERT INTO synonyms (synonym, id) VALUES (?, ?)", (synonym, id))
+    try:
+        conne = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao"
+        )
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    # Get cursor
+    curr = conne.cursor()
+    curr.execute("INSERT INTO synonyms (synonym, id) VALUES (?, ?)", (synonym, id))
+    conne.close()
     print("Synonym inserted with synonym=" + synonym + " and id=" + id)
 
 
