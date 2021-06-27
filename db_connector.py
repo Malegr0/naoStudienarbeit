@@ -90,6 +90,7 @@ def insert_answers(case_id: int, keywords: str, answer: str):
     :return:
     """
     cur.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (case_id, keywords, answer))
+    print("Answer inserted with case_id=" + case_id + ", keywords=" + keywords + " and answer=" + answer)
 
 
 # TODO: Add checks for arguments to catch wrong data
@@ -101,6 +102,7 @@ def insert_generic_terms(id: int, generic_term: str):
     :return:
     """
     cur.execute("INSERT INTO generic_terms (id, generic_term) VALUES (?, ?)", (id, generic_term))
+    print("Generic term inserted with id=" + id + " and generic_term=" + generic_term)
 
 
 # TODO: Add checks for arguments to catch wrong data
@@ -112,6 +114,7 @@ def insert_synonyms(synonym: str, id: int):
     :return:
     """
     cur.execute("INSERT INTO synonyms (synonym, id) VALUES (?, ?)", (synonym, id))
+    print("Synonym inserted with synonym=" + synonym + " and id=" + id)
 
 
 def init_db_connection():
