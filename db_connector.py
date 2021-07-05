@@ -165,32 +165,32 @@ def insert_synonyms(synonym: str, id: int):
     print("Synonym inserted with synonym=" + synonym + " and id=" + id)
 
 
-def init_db_connection():
-    """Initialize Database Connection
+# def init_db_connection():
+#     """Initialize Database Connection
+#
+#     Initializes the connection to the database with spezific data.
+#     """
+#     try:
+#         global conn
+#         conn = connect(
+#             host='127.0.0.1',
+#             port=3306,
+#             user="root",
+#             password="Asube-2019!",
+#             database="nao"
+#         )
+#     except Error as e:
+#         print("Error connecting to MariaDB Platform: ", e)
+#         sys.exit(1)
+#
+#     # Get cursor
+#     global cur
+#     cur = conn.cursor()
+#     print("Database connection initialized!")
 
-    Initializes the connection to the database with spezific data.
-    """
-    try:
-        global conn
-        conn = connect(
-            host='127.0.0.1',
-            port=3306,
-            user="root",
-            password="Asube-2019!",
-            database="nao"
-        )
-    except Error as e:
-        print("Error connecting to MariaDB Platform: ", e)
-        sys.exit(1)
 
-    # Get cursor
-    global cur
-    cur = conn.cursor()
-    print("Database connection initialized!")
-
-
-def close_db_connection():
-    """Close Database Connection
-    """
-    conn.close()
-    print("Database connection closed!")
+# def close_db_connection():
+#     """Close Database Connection
+#     """
+#     conn.close()
+#     print("Database connection closed!")
