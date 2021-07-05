@@ -3,8 +3,12 @@ import sys
 from mariadb import Error, connect
 
 # global variables
-conn = None
-cur = None
+config = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao")
 
 
 # TODO: Add check for empty list, raise EmptyListError
@@ -37,10 +41,20 @@ def get_generic_term(synonym: str) -> str:
     :return: Returns the generic term as string if there is one for the synonym.
     :raise RASENError: Generic term is not in the database table.
     """
+    try:
+        con = config
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    # Get cursor
+    cur = con.cursor()
     cur.execute("SELECT id FROM synonyms WHERE synonym=?", synonym)
     synonym_id = cur
     cur.execute("SELECT generic_terms FROM generic_terms WHERE id=?", synonym_id)
     generic_term = cur
+    con.commit()
+    con.close()
     return generic_term
 
 
@@ -54,7 +68,17 @@ def get_answer(case_id: int) -> str:
     :return: Returns the answer as string if there is one.
     :raise InvalidCaseIDError: case_id is not in the database table.
     """
+    try:
+        con = config
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    # Get cursor
+    cur = con.cursor()
     cur.execute("SELECT answer FROM matching_table WHERE caseID=?", case_id)
+    con.commit()
+    con.close()
     return cur
 
 
@@ -90,22 +114,16 @@ def insert_answers(case_id: int, keywords: str, answer: str):
     :return:
     """
     try:
-        conne = connect(
-            host='127.0.0.1',
-            port=3306,
-            user="root",
-            password="Asube-2019!",
-            database="nao"
-        )
+        con = config
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
 
     # Get cursor
-    curr = conne.cursor()
-    curr.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (case_id, keywords, answer))
-    conne.commit()
-    conne.close()
+    cur = con.cursor()
+    cur.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (case_id, keywords, answer))
+    con.commit()
+    con.close()
     print("Answer inserted with case_id=" + case_id + ", keywords=" + keywords + " and answer=" + answer)
 
 
@@ -118,22 +136,16 @@ def insert_generic_terms(id: int, generic_term: str):
     :return:
     """
     try:
-        conne = connect(
-            host='127.0.0.1',
-            port=3306,
-            user="root",
-            password="Asube-2019!",
-            database="nao"
-        )
+        con = config
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
 
     # Get cursor
-    curr = conne.cursor()
-    curr.execute("INSERT INTO generic_terms (id, generic_term) VALUES (?, ?)", (id, generic_term))
-    conne.commit()
-    conne.close()
+    cur = con.cursor()
+    cur.execute("INSERT INTO generic_terms (id, generic_term) VALUES (?, ?)", (id, generic_term))
+    con.commit()
+    con.close()
     print("Generic term inserted with id=" + id + " and generic_term=" + generic_term)
 
 
@@ -146,22 +158,16 @@ def insert_synonyms(synonym: str, id: int):
     :return:
     """
     try:
-        conne = connect(
-            host='127.0.0.1',
-            port=3306,
-            user="root",
-            password="Asube-2019!",
-            database="nao"
-        )
+        con = config
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
 
     # Get cursor
-    curr = conne.cursor()
-    curr.execute("INSERT INTO synonyms (synonym, id) VALUES (?, ?)", (synonym, id))
-    conne.commit()
-    conne.close()
+    cur = con.cursor()
+    cur.execute("INSERT INTO synonyms (synonym, id) VALUES (?, ?)", (synonym, id))
+    con.commit()
+    con.close()
     print("Synonym inserted with synonym=" + synonym + " and id=" + id)
 
 
