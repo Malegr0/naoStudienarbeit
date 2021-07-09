@@ -1,3 +1,6 @@
+#!/usr/bin/python
+#-*- coding:utf-8 -*-
+
 # TODO: Specify Docs of function, add Doc for File and variables
 import sys
 import json
