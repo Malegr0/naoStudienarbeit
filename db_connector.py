@@ -1,5 +1,6 @@
 # TODO: Specify Docs of function, add Doc for File and variables
 import sys
+import json
 from mariadb import Error, connect
 
 
@@ -9,8 +10,8 @@ def get_all_synonyms() -> str:
 
     ADD DESCRIPTION
 
-    :return: Returns a list of dictionaries with all synonyms.
-    :raise EmptyListError: emptyList
+    :return:
+    :raise
     """
     try:
         con = connect(
@@ -24,8 +25,14 @@ def get_all_synonyms() -> str:
         sys.exit(1)
 
     cur = con.cursor()
-    synonyms = cur.execute("SELECT synonym, id FROM synonyms")
-    return synonyms
+    cur.execute("SELECT synonym, id FROM synonyms")
+    list = []
+    for synonym, syn_id in cur:
+        list.append({'synonym': synonym, 'id': syn_id})
+    json_str = json.dumps(list)
+    con.commit()
+    con.close()
+    return json_str
 
 
 # TODO: add checks for wrong returns, raise Error
@@ -191,7 +198,6 @@ def insert_synonyms(synonym: str, id: int):
     con.commit()
     con.close()
     print("Synonym inserted with synonym=" + synonym + " and id=" + id)
-
 
 # def init_db_connection():
 #     """Initialize Database Connection

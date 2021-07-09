@@ -38,4 +38,4 @@ def synonyms():
         db_connector.insert_synonyms(synonym, syn_id)
         return 'OK'
     else:
-        return jsonify(db_connector.get_all_synonyms())
+        return db_connector.get_all_synonyms()
