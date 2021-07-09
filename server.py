@@ -8,21 +8,13 @@ app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
 
-def get_db_answer(question):
-    return {
-        "question": question,
-        "answer": "Question received"
-    }
-
-
 @app.route('/', methods=['GET'])
 def get_request():
-    question = request.form['question']
-    return jsonify(get_db_answer(question))
+    return jsonify("This is the server of nao.")
 
 
-@app.route('/answers', methods=['POST'])
-def post_answer():
+@app.route('/answers', methods=['GET', 'POST'])
+def answers():
     case_id = request.form.get('caseID')
     keywords = request.form.get('keywords')
     answer = request.form.get('answer')
@@ -30,17 +22,20 @@ def post_answer():
     return 'OK'
 
 
-@app.route('/genericTerms', methods=['POST'])
-def post_generic_term():
+@app.route('/genericTerms', methods=['GET', 'POST'])
+def generic_terms():
     gn_id = request.form.get('id')
     generic_term = request.form.get('generic_term')
     db_connector.insert_generic_terms(gn_id, generic_term)
     return 'OK'
 
 
-@app.route('/synonyms', methods=['POST'])
-def post_synonyms():
-    synonym = request.form.get('synonym')
-    syn_id = request.form.get('id')
-    db_connector.insert_synonyms(synonym, syn_id)
-    return 'OK'
+@app.route('/synonyms', methods=['GET', 'POST'])
+def synonyms():
+    if request.method == 'POST':
+        synonym = request.form.get('synonym')
+        syn_id = request.form.get('id')
+        db_connector.insert_synonyms(synonym, syn_id)
+        return 'OK'
+    else:
+        return jsonify(db_connector.get_all_synonyms())

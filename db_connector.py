@@ -4,23 +4,28 @@ from mariadb import Error, connect
 
 
 # TODO: Add check for empty list, raise EmptyListError
-# def get_all_synonyms() -> list[dict]:
-#     """Return all synonyms
-#
-#     ADD DESCRIPTION
-#
-#     :return: Returns a list of dictionaries with all synonyms.
-#     :raise EmptyListError: emptyList
-#     """
-#     cur.execute("SELECT synonym, id FROM synonyms")
-#     list = []
-#     for synonym, synonym_id in cur:
-#         dictionary = {
-#             "synonym": synonym,
-#             "generic_term": synonym_id
-#         }
-#         list.append(dictionary)
-#     return list
+def get_all_synonyms() -> str:
+    """Return all synonyms
+
+    ADD DESCRIPTION
+
+    :return: Returns a list of dictionaries with all synonyms.
+    :raise EmptyListError: emptyList
+    """
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    cur = con.cursor()
+    synonyms = cur.execute("SELECT synonym, id FROM synonyms")
+    return synonyms
 
 
 # TODO: add checks for wrong returns, raise Error
