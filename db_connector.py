@@ -2,14 +2,6 @@
 import sys
 from mariadb import Error, connect
 
-# global variables
-config = connect(
-            host='127.0.0.1',
-            port=3306,
-            user="root",
-            password="Asube-2019!",
-            database="nao")
-
 
 # TODO: Add check for empty list, raise EmptyListError
 # def get_all_synonyms() -> list[dict]:
@@ -42,7 +34,12 @@ def get_generic_term(synonym: str) -> str:
     :raise RASENError: Generic term is not in the database table.
     """
     try:
-        con = config
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
@@ -69,7 +66,12 @@ def get_answer(case_id: int) -> str:
     :raise InvalidCaseIDError: case_id is not in the database table.
     """
     try:
-        con = config
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
@@ -114,7 +116,12 @@ def insert_answers(case_id: int, keywords: str, answer: str):
     :return:
     """
     try:
-        con = config
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
@@ -136,7 +143,12 @@ def insert_generic_terms(id: int, generic_term: str):
     :return:
     """
     try:
-        con = config
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
@@ -158,7 +170,12 @@ def insert_synonyms(synonym: str, id: int):
     :return:
     """
     try:
-        con = config
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
