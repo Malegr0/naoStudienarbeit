@@ -13,7 +13,7 @@ def get_all_synonyms() -> str:
 
     ADD DESCRIPTION
 
-    :return:
+    :return: JSON as string
     :raise
     """
     try:
@@ -29,10 +29,70 @@ def get_all_synonyms() -> str:
 
     cur = con.cursor()
     cur.execute("SELECT synonym, id FROM synonyms")
-    list = []
+    syn_list = []
     for synonym, syn_id in cur:
-        list.append({'synonym': synonym, 'id': syn_id})
-    json_str = json.dumps(list)
+        syn_list.append({'synonym': synonym, 'id': syn_id})
+    json_str = json.dumps(syn_list)
+    con.commit()
+    con.close()
+    return json_str
+
+
+#TODO: add checks for wrong returns, raise Error
+def get_all_generic_terms() -> str:
+    """Return all generic terms
+
+    ADD DESCRIPTION
+
+    :return: JSON as string
+    """
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    cur = con.cursor()
+    cur.execute("SELECT id, generic_term FROM generic_terms")
+    gt_list = []
+    for gt_id, generic_term in cur:
+        gt_list.append({'id': gt_id, 'generic_term': generic_term})
+    json_str = json.dumps(gt_list)
+    con.commit()
+    con.close()
+    return json_str
+
+
+#TODO: add checks for wrong returns, raise Error
+def get_all_answers() -> str:
+    """Return all answers
+
+    ADD DESCRIPTION
+
+    :return: JSON as string
+    """
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    cur = con.cursor()
+    cur.execute("SELECT caseID, keywords, answer FROM matching_table")
+    ans_list = []
+    for case_id, keywords, answer in cur:
+        ans_list.append({'caseID': case_id, 'keywords': keywords, 'answer': answer})
+    json_str = json.dumps(ans_list)
     con.commit()
     con.close()
     return json_str

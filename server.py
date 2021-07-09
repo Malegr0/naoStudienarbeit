@@ -18,19 +18,25 @@ def get_request():
 
 @app.route('/answers', methods=['GET', 'POST'])
 def answers():
-    case_id = request.form.get('caseID')
-    keywords = request.form.get('keywords')
-    answer = request.form.get('answer')
-    db_connector.insert_answers(case_id, keywords, answer)
-    return 'OK'
+    if request.method == 'POST':
+        case_id = request.form.get('caseID')
+        keywords = request.form.get('keywords')
+        answer = request.form.get('answer')
+        db_connector.insert_answers(case_id, keywords, answer)
+        return 'OK'
+    else:
+        return db_connector.get_all_answers()
 
 
 @app.route('/genericTerms', methods=['GET', 'POST'])
 def generic_terms():
-    gn_id = request.form.get('id')
-    generic_term = request.form.get('generic_term')
-    db_connector.insert_generic_terms(gn_id, generic_term)
-    return 'OK'
+    if request.method == 'POST':
+        gn_id = request.form.get('id')
+        generic_term = request.form.get('generic_term')
+        db_connector.insert_generic_terms(gn_id, generic_term)
+        return 'OK'
+    else:
+        return db_connector.get_all_generic_terms()
 
 
 @app.route('/synonyms', methods=['GET', 'POST'])
