@@ -1,5 +1,4 @@
 import word
-import spacy
 
 
 # Funktion erhält deen erkannten Satz und verarbeitet diesen pro Wort in einer Schleife.
@@ -26,8 +25,6 @@ def sentence_detection(sentence):
     for checked_word in found_words:
         new_sentence = new_sentence + " " + word.Word.get_lemma(checked_word)
     print(new_sentence + "\n -----------------------")
-    print(spacy.explain("PWAV"))
-    print(spacy.explain("cm"))
 
 
 # Als erstes wird der POS untersucht. Wenn einer der Fälle eintritt, wird das Wort nicht weiter beachtet,
