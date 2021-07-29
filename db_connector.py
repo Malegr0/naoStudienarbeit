@@ -159,6 +159,23 @@ def get_answer(case_id: int) -> str:
     return cur
 
 
+def get_answer_by_str(word: str):
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="root",
+            password="Asube-2019!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    cur = con.cursor()
+    cur.execute(f"SELECT caseID FROM matching_table where keywords LIKE '%{word}%'")
+    return None
+
+
 # TODO: Add checks for arguments to catch wrong data
 def insert_answers(case_id: int, keywords: str, answer: str):
     """Insert data into matching table
