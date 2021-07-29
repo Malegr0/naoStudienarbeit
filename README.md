@@ -62,7 +62,7 @@ create table nao.generic_terms (id int, generic_term varchar(255));
 ```
 5. Create a table called matching_table.
 ```
-create table nao.matching_table (caseID int, keywords text, asnwer text);
+create table nao.matching_table (caseID int, keywords text, answer text);
 ```
 
 ### Insert Data
