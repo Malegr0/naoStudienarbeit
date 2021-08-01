@@ -21,7 +21,7 @@ def get_all_synonyms() -> str:
             host='127.0.0.1',
             port=3306,
             user="root",
-            password="Asube-2019!",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -51,7 +51,7 @@ def get_all_generic_terms() -> str:
             host='127.0.0.1',
             port=3306,
             user="root",
-            password="Asube-2019!",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -81,7 +81,7 @@ def get_all_answers() -> str:
             host='127.0.0.1',
             port=3306,
             user="root",
-            password="Asube-2019!",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -113,7 +113,7 @@ def get_generic_term(synonym: str) -> str:
             host='127.0.0.1',
             port=3306,
             user="root",
-            password="Asube-2019!",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -145,7 +145,7 @@ def get_answer(case_id: int) -> str:
             host='127.0.0.1',
             port=3306,
             user="root",
-            password="Asube-2019!",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -165,7 +165,7 @@ def get_answer_by_str(word: str):
             host='127.0.0.1',
             port=3306,
             user="root",
-            password="Asube-2019!",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -190,7 +190,7 @@ def insert_answers(case_id: int, keywords: str, answer: str):
             host='127.0.0.1',
             port=3306,
             user="root",
-            password="Asube-2019!",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -217,7 +217,7 @@ def insert_generic_terms(id: int, generic_term: str):
             host='127.0.0.1',
             port=3306,
             user="root",
-            password="Asube-2019!",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -244,7 +244,7 @@ def insert_synonyms(synonym: str, id: int):
             host='127.0.0.1',
             port=3306,
             user="root",
-            password="Asube-2019!",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -268,7 +268,7 @@ def insert_synonyms(synonym: str, id: int):
 #             host='127.0.0.1',
 #             port=3306,
 #             user="root",
-#             password="Asube-2019!",
+#             password="Asube-2015!",
 #             database="nao"
 #         )
 #     except Error as e:
