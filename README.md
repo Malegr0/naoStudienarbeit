@@ -28,7 +28,7 @@ This project is written in python 3.9
 
 ### Prerequisites
 Pip is needed for the following installation.
-MariaDB must be installed on the same device on which the code is executed.
+MariaDB and their dependencies (libmariadb3 and libmariadb-dev) must be installed on the same device on which the code is executed.
 
 ### Installation
 1. Clone the repo
@@ -37,9 +37,9 @@ git clone https://github.com/Malegr0/naoStudienarbeit.git
 ```
 2. Install packages
 ```
-pip install -U spacy
+pip3 install -U spacy==3.0.6
 python -m spacy download de_core_news_sm
-pip install flask
+pip3 install flask
 pip3 install mariadb
 ```
 
@@ -63,6 +63,11 @@ create table nao.generic_terms (id int, generic_term varchar(255));
 5. Create a table called matching_table.
 ```
 create table nao.matching_table (caseID int, keywords text, answer text);
+```
+6. Create a user to access the database. (You can change the credentials but keep in mind that you have to change it in the script as well.)
+```
+create user 'naouser'@'localhost' identified by 'Asube-2015!';
+grant all privileges on nao.* 'naouser'@'localhost';
 ```
 
 ### Insert Data
