@@ -20,7 +20,7 @@ def get_all_synonyms() -> str:
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
+            user="naouser",
             password="Asube-2015!",
             database="nao")
     except Error as e:
@@ -50,7 +50,7 @@ def get_all_generic_terms() -> str:
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
+            user="naouser",
             password="Asube-2015!",
             database="nao")
     except Error as e:
@@ -80,7 +80,7 @@ def get_all_answers() -> str:
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
+            user="naouser",
             password="Asube-2015!",
             database="nao")
     except Error as e:
@@ -112,7 +112,7 @@ def get_generic_term(synonym: str) -> str:
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
+            user="naouser",
             password="Asube-2015!",
             database="nao")
     except Error as e:
@@ -144,7 +144,7 @@ def get_answer(case_id: int) -> str:
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
+            user="naouser",
             password="Asube-2015!",
             database="nao")
     except Error as e:
@@ -164,7 +164,7 @@ def get_answer_by_str(word: str):
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
+            user="naouser",
             password="Asube-2015!",
             database="nao")
     except Error as e:
@@ -189,7 +189,7 @@ def insert_answers(case_id: int, keywords: str, answer: str):
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
+            user="naouser",
             password="Asube-2015!",
             database="nao")
     except Error as e:
@@ -216,7 +216,7 @@ def insert_generic_terms(id: int, generic_term: str):
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
+            user="naouser",
             password="Asube-2015!",
             database="nao")
     except Error as e:
@@ -243,7 +243,7 @@ def insert_synonyms(synonym: str, id: int):
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
+            user="naouser",
             password="Asube-2015!",
             database="nao")
     except Error as e:
@@ -267,7 +267,7 @@ def insert_synonyms(synonym: str, id: int):
 #         conn = connect(
 #             host='127.0.0.1',
 #             port=3306,
-#             user="root",
+#             user="naouser",
 #             password="Asube-2015!",
 #             database="nao"
 #         )
