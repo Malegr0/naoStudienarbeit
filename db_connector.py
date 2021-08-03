@@ -169,7 +169,7 @@ def get_answer(case_id: int) -> str:
     return cur
 
 
-def get_answer_by_keywords(word: str):
+def get_caseIDs_by_keywords(word: str):
     try:
         con = connect(
             host='127.0.0.1',
@@ -181,9 +181,14 @@ def get_answer_by_keywords(word: str):
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
     cur = con.cursor()
-    reqstr = f"SELECT keywords, caseID FROM matching_table where keywords LIKE '%{word}%'"
+    reqstr = f"SELECT caseID, keywords FROM matching_table where keywords LIKE '%{word}%'"
     cur.execute(reqstr)
-    return None
+    cID = None
+    for (caseID, keywords) in cur:
+        cID = caseID
+    if cID is None:
+        return None
+    return cID
 
 
 # TODO: Add checks for arguments to catch wrong data

@@ -7,8 +7,9 @@ import db_connector
 def count_ids(question: list) -> int:
     counter = None
     for word in question:
-        ids = db_connector.get_answer_by_str(word)
-        # TODO: add check for empty set
+        ids = db_connector.get_caseIDs_by_keywords(word)
+        if ids is None:
+            continue
         for case_id in ids:
             counter = check_list(counter, case_id)
     return check_for_highest_id(counter)
