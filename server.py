@@ -30,8 +30,8 @@ def get_request():
             continue
         found_words[i] = wd
         i += 1
-    test123 = counter.count_ids(found_words)
-    return jsonify(test123)
+    caseID = counter.count_ids(found_words)
+    return jsonify(db_connector.get_answer(caseID))
 
 
 @app.route('/answers', methods=['GET', 'POST'])
