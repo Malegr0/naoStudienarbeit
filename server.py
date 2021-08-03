@@ -27,6 +27,7 @@ def get_request():
         if wd is None:
             continue
         found_words[i] = wd
+        i += 1
     return jsonify(found_words)
 
 
