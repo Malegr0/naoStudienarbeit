@@ -121,11 +121,11 @@ def get_generic_term(synonym: str) -> str:
 
     # Get cursor
     cur = con.cursor()
-    reqstr = f"SELECT id FROM synonyms WHERE synonym='{synonym}'"
+    reqstr = f"SELECT id, synonym FROM synonyms WHERE synonym='{synonym}'"
     print(reqstr)
     cur.execute(reqstr)
     synonym_id = None
-    for id in cur:
+    for (id, synonym) in cur:
         synonym_id = id
     if synonym_id is None:
         return None
