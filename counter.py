@@ -8,6 +8,7 @@ def count_ids(question: list) -> int:
     counter = None
     for word in question:
         ids = db_connector.get_caseIDs_by_keywords(word)
+        print(ids)
         if ids is None:
             continue
         for case_id in range(ids):
@@ -42,4 +43,5 @@ def check_for_highest_id(counter: list) -> int:
             highest = counter[i].get("count")
             case_id = counter[i].get("case_id")
         i += 1
+    print("caseID == " + case_id)
     return case_id
