@@ -121,11 +121,15 @@ def get_generic_term(synonym: str) -> str:
 
     # Get cursor
     cur = con.cursor()
-    cur.execute(f"SELECT id FROM synonyms WHERE synonym={synonym}")
+    reqstr = f"SELECT id FROM synonyms WHERE synonym={synonym}"
+    print(reqstr)
+    cur.execute(reqstr)
     synonym_id = cur
     if synonym_id is None:
         return None
-    cur.execute(f"SELECT generic_terms FROM generic_terms WHERE id={synonym_id}")
+    reqstr = f"SELECT generic_terms FROM generic_terms WHERE id={synonym_id}"
+    print(reqstr)
+    cur.execute(reqstr)
     generic_term = cur
     con.commit()
     con.close()
