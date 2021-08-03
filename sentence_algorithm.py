@@ -25,6 +25,7 @@ def sentence_detection(sentence):
     for checked_word in found_words:
         new_sentence = new_sentence + " " + word.Word.get_lemma(checked_word)
     print(new_sentence + "\n -----------------------")
+    return found_words
 
 
 # Als erstes wird der POS untersucht. Wenn einer der Fälle eintritt, wird das Wort nicht weiter beachtet,
