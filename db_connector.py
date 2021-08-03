@@ -188,8 +188,6 @@ def get_caseIDs_by_keywords(word: str):
         cID.append(caseID)
     if len(cID) == 0:
         return None
-    print("cID in get_caseIDs_by_keywords: ")
-    print(cID)
     return cID
 
 
