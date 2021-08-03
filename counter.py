@@ -11,7 +11,7 @@ def count_ids(question: list) -> int:
         print(ids)
         if ids is None:
             continue
-        for case_id in range(ids):
+        for case_id in ids:
             counter = check_list(counter, case_id)
     return check_for_highest_id(counter)
 
