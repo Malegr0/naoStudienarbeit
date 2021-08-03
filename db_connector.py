@@ -168,8 +168,8 @@ def get_answer(case_id: int) -> str:
     con.close()
     return cur
 
-#vllt weg
-def get_answer_by_str(word: str):
+
+def get_answer_by_keywords(word: str):
     try:
         con = connect(
             host='127.0.0.1',
@@ -180,9 +180,9 @@ def get_answer_by_str(word: str):
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
-
     cur = con.cursor()
-    cur.execute(f"SELECT caseID FROM matching_table where keywords LIKE '%{word}%'")
+    reqstr = f"SELECT keywords, caseID FROM matching_table where keywords LIKE '%{word}%'"
+    cur.execute(reqstr)
     return None
 
 

@@ -5,6 +5,7 @@ import flask
 import spacy
 from flask import request, jsonify
 
+import counter
 import db_connector
 import sentence_algorithm
 
@@ -29,7 +30,8 @@ def get_request():
             continue
         found_words[i] = wd
         i += 1
-    return jsonify(found_words)
+    test123 = counter.count_ids(found_words)
+    return jsonify(test123)
 
 
 @app.route('/answers', methods=['GET', 'POST'])
