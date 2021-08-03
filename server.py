@@ -31,7 +31,10 @@ def get_request():
         found_words[i] = wd
         i += 1
     caseID = counter.count_ids(found_words)
-    return jsonify(db_connector.get_answer(caseID))
+    answer = db_connector.get_answer(caseID)
+    if answer is None:
+        return jsonify("-1")
+    return answer
 
 
 @app.route('/answers', methods=['GET', 'POST'])

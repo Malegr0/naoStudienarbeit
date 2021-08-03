@@ -33,7 +33,6 @@ def get_all_synonyms() -> str:
     for synonym, syn_id in cur:
         syn_list.append({'synonym': synonym, 'id': syn_id})
     json_str = json.dumps(syn_list)
-    con.commit()
     con.close()
     return json_str
 
@@ -63,7 +62,6 @@ def get_all_generic_terms() -> str:
     for gt_id, generic_term in cur:
         gt_list.append({'id': gt_id, 'generic_term': generic_term})
     json_str = json.dumps(gt_list)
-    con.commit()
     con.close()
     return json_str
 
@@ -93,7 +91,6 @@ def get_all_answers() -> str:
     for case_id, keywords, answer in cur:
         ans_list.append({'caseID': case_id, 'keywords': keywords, 'answer': answer})
     json_str = json.dumps(ans_list)
-    con.commit()
     con.close()
     return json_str
 
@@ -135,7 +132,6 @@ def get_generic_term(synonym: str) -> str:
     gen_term = None
     for (generic_term, id) in cur:
         gen_term = generic_term
-    #con.commit()
     con.close()
     return gen_term
 
@@ -163,10 +159,13 @@ def get_answer(case_id: int) -> str:
 
     # Get cursor
     cur = con.cursor()
-    reqstr = f"SELECT answer FROM matching_table WHERE caseID={case_id}"
+    reqstr = f"SELECT answer, caseID FROM matching_table WHERE caseID={case_id}"
     cur.execute(reqstr)
+    ans = None
+    for (answer, caseID) in cur:
+        ans = answer
     con.close()
-    return cur
+    return ans
 
 
 def get_caseIDs_by_keywords(word: str):
