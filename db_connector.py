@@ -127,7 +127,7 @@ def get_generic_term(synonym: str) -> str:
     synonym_id = cur
     if synonym_id is None:
         return None
-    reqstr = f"SELECT generic_terms FROM generic_terms WHERE id={synonym_id}"
+    reqstr = f"SELECT generic_term FROM generic_terms WHERE id={synonym_id}"
     print(reqstr)
     cur.execute(reqstr)
     generic_term = cur
