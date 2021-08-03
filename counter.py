@@ -10,7 +10,7 @@ def count_ids(question: list) -> int:
         ids = db_connector.get_caseIDs_by_keywords(word)
         if ids is None:
             continue
-        for case_id in ids:
+        for case_id in range(ids):
             counter = check_list(counter, case_id)
     return check_for_highest_id(counter)
 
