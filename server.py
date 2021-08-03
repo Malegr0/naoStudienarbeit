@@ -25,6 +25,7 @@ def get_request():
     while i < len(found_words):
         wd = db_connector.get_generic_term(found_words[i])
         if wd is None:
+            i += 1
             continue
         found_words[i] = wd
         i += 1
