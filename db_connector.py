@@ -165,7 +165,6 @@ def get_answer(case_id: int) -> str:
     cur = con.cursor()
     reqstr = f"SELECT answer FROM matching_table WHERE caseID={case_id}"
     cur.execute(reqstr)
-    con.commit()
     con.close()
     return cur
 
