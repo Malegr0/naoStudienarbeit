@@ -129,13 +129,15 @@ def get_generic_term(synonym: str) -> str:
         synonym_id = id
     if synonym_id is None:
         return None
-    reqstr = f"SELECT generic_term FROM generic_terms WHERE id={synonym_id}"
+    reqstr = f"SELECT generic_term, id FROM generic_terms WHERE id={synonym_id}"
     print(reqstr)
     cur.execute(reqstr)
-    generic_term = cur
+    gen_term = None
+    for (generic_term, id) in cur:
+        gen_term = generic_term
     #con.commit()
     con.close()
-    return generic_term
+    return gen_term
 
 
 # TODO: add check for wrong case_id, raise InvalidCaseIDError
