@@ -13,7 +13,10 @@ app.config["DEBUG"] = True
 
 @app.route('/', methods=['GET'])
 def get_request():
-    return jsonify("This is the server of nao.")
+    question = request.form.get('question')
+    if question is None:
+        return jsonify("This is the server of nao.")
+    return jsonify("Your question: " + question)
 
 
 @app.route('/answers', methods=['GET', 'POST'])
