@@ -123,6 +123,8 @@ def get_generic_term(synonym: str) -> str:
     cur = con.cursor()
     cur.execute("SELECT id FROM synonyms WHERE synonym=?", synonym)
     synonym_id = cur
+    if synonym_id is None:
+        return None
     cur.execute("SELECT generic_terms FROM generic_terms WHERE id=?", synonym_id)
     generic_term = cur
     con.commit()
@@ -158,7 +160,7 @@ def get_answer(case_id: int) -> str:
     con.close()
     return cur
 
-
+#vllt weg
 def get_answer_by_str(word: str):
     try:
         con = connect(

@@ -7,7 +7,6 @@ from flask import request, jsonify
 
 import db_connector
 import sentence_algorithm
-import word
 
 app = flask.Flask(__name__)
 # Change to False when using in production
@@ -22,6 +21,12 @@ def get_request():
     nlp = spacy.load("de_core_news_sm")
     doc = nlp(question)
     found_words = sentence_algorithm.sentence_detection(doc)
+    i = 0
+    while i < len(found_words):
+        wd = db_connector.get_generic_term(found_words[i])
+        if wd is None:
+            continue
+        found_words[i] = wd
     return jsonify(found_words)
 
 
