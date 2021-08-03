@@ -43,5 +43,5 @@ def check_for_highest_id(counter: list) -> int:
             highest = counter[i].get("count")
             case_id = counter[i].get("case_id")
         i += 1
-    print("caseID == " + case_id)
+    print("caseID == " + str(case_id))
     return case_id
