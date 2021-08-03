@@ -183,10 +183,10 @@ def get_caseIDs_by_keywords(word: str):
     cur = con.cursor()
     reqstr = f"SELECT caseID, keywords FROM matching_table where keywords LIKE '%{word}%'"
     cur.execute(reqstr)
-    cID = None
+    cID = []
     for (caseID, keywords) in cur:
-        cID = caseID
-    if cID is None:
+        cID.append(caseID)
+    if len(cID) == 0:
         return None
     print("cID in get_caseIDs_by_keywords: ")
     print(cID)
