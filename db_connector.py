@@ -125,7 +125,7 @@ def get_generic_term(synonym: str) -> str:
     print(reqstr)
     cur.execute(reqstr)
     synonym_id = None
-    for (id) in cur:
+    for id in cur:
         synonym_id = id
     if synonym_id is None:
         return None
