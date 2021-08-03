@@ -7,6 +7,7 @@ from flask import request, jsonify
 
 import db_connector
 import sentence_algorithm
+import word
 
 app = flask.Flask(__name__)
 # Change to False when using in production
@@ -20,8 +21,8 @@ def get_request():
         return jsonify("This is the server of nao.")
     nlp = spacy.load("de_core_news_sm")
     doc = nlp(question)
-    sentence_algorithm.sentence_detection(doc)
-    return jsonify("Your question: " + question)
+    found_words = sentence_algorithm.sentence_detection(doc)
+    return jsonify(found_words)
 
 
 @app.route('/answers', methods=['GET', 'POST'])
