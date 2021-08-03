@@ -2,9 +2,11 @@
 #-*- coding:utf-8 -*-
 
 import flask
+import spacy
 from flask import request, jsonify
 
 import db_connector
+import sentence_algorithm
 
 app = flask.Flask(__name__)
 # Change to False when using in production
@@ -16,6 +18,9 @@ def get_request():
     question = request.form.get('question')
     if question is None:
         return jsonify("This is the server of nao.")
+    nlp = spacy.load("de_core_news_sm")
+    doc = nlp(question)
+    sentence_algorithm.sentence_detection(doc)
     return jsonify("Your question: " + question)
 
 
