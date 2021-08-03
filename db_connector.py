@@ -188,7 +188,8 @@ def get_caseIDs_by_keywords(word: str):
         cID = caseID
     if cID is None:
         return None
-    print("cID in get_caseIDs_by_keywords: " + str(cID))
+    print("cID in get_caseIDs_by_keywords: ")
+    print(cID)
     return cID
 
 
