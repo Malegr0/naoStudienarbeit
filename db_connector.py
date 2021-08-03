@@ -133,7 +133,7 @@ def get_generic_term(synonym: str) -> str:
     print(reqstr)
     cur.execute(reqstr)
     generic_term = cur
-    con.commit()
+    #con.commit()
     con.close()
     return generic_term
 
