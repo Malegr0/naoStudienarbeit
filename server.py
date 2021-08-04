@@ -16,7 +16,7 @@ app.config["DEBUG"] = True
 
 @app.route('/', methods=['GET'])
 def get_request():
-    question = request.form.get('question')
+    question = request.args.get('question')
     if question is None:
         return jsonify("This is the server of nao.")
     nlp = spacy.load("de_core_news_sm")
