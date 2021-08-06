@@ -184,7 +184,9 @@ def get_caseIDs_by_keywords(word: str):
     for (caseID, keywords) in cur:
         cID.append(caseID)
     if len(cID) == 0:
+        con.close()
         return None
+    con.close()
     return cID
 
 
