@@ -21,10 +21,10 @@ def sentence_detection(sentence):
     #      "\nOriginalsatz:"
     #      "\n" + str(sentence) +
     #      "\n-----------------------")
-    #print("Neuer Satz:")
-    #for checked_word in found_words:
-    #    new_sentence = new_sentence + " " + word.Word.get_lemma(checked_word)
-    #print(new_sentence + "\n-----------------------")
+    print("Neuer Satz:")
+    for checked_word in found_words:
+        new_sentence = new_sentence + " " + word.Word.get_lemma(checked_word)
+    print(new_sentence + "\n-----------------------")
 
     #Build list of words which can be returned
     words = []
