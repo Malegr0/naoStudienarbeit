@@ -34,6 +34,8 @@ def check_for_highest_id(counter: list) -> int:
     highest = None
     case_id = None
     i = 0
+    if counter is None:
+        return None
     while i < len(counter):
         if highest is None:
             highest = counter[i].get("count")
