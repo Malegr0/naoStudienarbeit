@@ -46,7 +46,7 @@ pip3 install mariadb
 ### Database Setup
 1. Open the terminal and login to MariaDB with your username and password.
 ```
-sudo mariadb --user YOUR_USERNAME -p
+mariadb -u YOUR_USERNAME -p
 ```
 2. If u are logged in then create a database called nao.
 ```
