@@ -20,8 +20,8 @@ def get_all_synonyms() -> str:
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
-            password="Asube-2019!",
+            user="naouser",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -33,7 +33,6 @@ def get_all_synonyms() -> str:
     for synonym, syn_id in cur:
         syn_list.append({'synonym': synonym, 'id': syn_id})
     json_str = json.dumps(syn_list)
-    con.commit()
     con.close()
     return json_str
 
@@ -50,8 +49,8 @@ def get_all_generic_terms() -> str:
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
-            password="Asube-2019!",
+            user="naouser",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -63,7 +62,6 @@ def get_all_generic_terms() -> str:
     for gt_id, generic_term in cur:
         gt_list.append({'id': gt_id, 'generic_term': generic_term})
     json_str = json.dumps(gt_list)
-    con.commit()
     con.close()
     return json_str
 
@@ -80,8 +78,8 @@ def get_all_answers() -> str:
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
-            password="Asube-2019!",
+            user="naouser",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -93,7 +91,6 @@ def get_all_answers() -> str:
     for case_id, keywords, answer in cur:
         ans_list.append({'caseID': case_id, 'keywords': keywords, 'answer': answer})
     json_str = json.dumps(ans_list)
-    con.commit()
     con.close()
     return json_str
 
@@ -112,8 +109,8 @@ def get_generic_term(synonym: str) -> str:
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
-            password="Asube-2019!",
+            user="naouser",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -121,13 +118,21 @@ def get_generic_term(synonym: str) -> str:
 
     # Get cursor
     cur = con.cursor()
-    cur.execute("SELECT id FROM synonyms WHERE synonym=?", synonym)
-    synonym_id = cur
-    cur.execute("SELECT generic_terms FROM generic_terms WHERE id=?", synonym_id)
-    generic_term = cur
-    con.commit()
+    reqstr = f"SELECT id, synonym FROM synonyms WHERE synonym='{synonym}'"
+    cur.execute(reqstr)
+    synonym_id = None
+    for (id, synonym) in cur:
+        synonym_id = id
+    if synonym_id is None:
+        con.close()
+        return None
+    reqstr = f"SELECT generic_term, id FROM generic_terms WHERE id={synonym_id}"
+    cur.execute(reqstr)
+    gen_term = None
+    for (generic_term, id) in cur:
+        gen_term = generic_term
     con.close()
-    return generic_term
+    return gen_term
 
 
 # TODO: add check for wrong case_id, raise InvalidCaseIDError
@@ -144,8 +149,8 @@ def get_answer(case_id: int) -> str:
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
-            password="Asube-2019!",
+            user="naouser",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -153,10 +158,37 @@ def get_answer(case_id: int) -> str:
 
     # Get cursor
     cur = con.cursor()
-    cur.execute("SELECT answer FROM matching_table WHERE caseID=?", case_id)
-    con.commit()
+    reqstr = f"SELECT answer, caseID FROM matching_table WHERE caseID={case_id}"
+    cur.execute(reqstr)
+    ans = None
+    for (answer, caseID) in cur:
+        ans = answer
     con.close()
-    return cur
+    return ans
+
+
+def get_caseIDs_by_keywords(word: str):
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+    cur = con.cursor()
+    reqstr = f"SELECT caseID, keywords FROM matching_table where keywords LIKE '%{word}%'"
+    cur.execute(reqstr)
+    cID = []
+    for (caseID, keywords) in cur:
+        cID.append(caseID)
+    if len(cID) == 0:
+        con.close()
+        return None
+    con.close()
+    return cID
 
 
 # TODO: Add checks for arguments to catch wrong data
@@ -172,8 +204,8 @@ def insert_answers(case_id: int, keywords: str, answer: str):
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
-            password="Asube-2019!",
+            user="naouser",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -199,8 +231,8 @@ def insert_generic_terms(id: int, generic_term: str):
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
-            password="Asube-2019!",
+            user="naouser",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -226,8 +258,8 @@ def insert_synonyms(synonym: str, id: int):
         con = connect(
             host='127.0.0.1',
             port=3306,
-            user="root",
-            password="Asube-2019!",
+            user="naouser",
+            password="Asube-2015!",
             database="nao")
     except Error as e:
         print("Error connecting to MariaDB Platform: ", e)
@@ -250,8 +282,8 @@ def insert_synonyms(synonym: str, id: int):
 #         conn = connect(
 #             host='127.0.0.1',
 #             port=3306,
-#             user="root",
-#             password="Asube-2019!",
+#             user="naouser",
+#             password="Asube-2015!",
 #             database="nao"
 #         )
 #     except Error as e:
