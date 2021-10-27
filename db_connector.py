@@ -28,7 +28,7 @@ def get_all_synonyms() -> str:
         sys.exit(1)
 
     cur = con.cursor()
-    cur.execute("SELECT synonym, id FROM synonyms")
+    cur.execute("SELECT synonym, id FROM synonyms ORDER BY id")
     syn_list = []
     for synonym, syn_id in cur:
         syn_list.append({'synonym': synonym, 'id': syn_id})
@@ -57,7 +57,7 @@ def get_all_generic_terms() -> str:
         sys.exit(1)
 
     cur = con.cursor()
-    cur.execute("SELECT id, generic_term FROM generic_terms")
+    cur.execute("SELECT id, generic_term FROM generic_terms ORDER BY id")
     gt_list = []
     for gt_id, generic_term in cur:
         gt_list.append({'id': gt_id, 'generic_term': generic_term})
@@ -86,7 +86,7 @@ def get_all_answers() -> str:
         sys.exit(1)
 
     cur = con.cursor()
-    cur.execute("SELECT caseID, keywords, answer FROM matching_table")
+    cur.execute("SELECT caseID, keywords, answer FROM matching_table ORDER BY caseID")
     ans_list = []
     for case_id, keywords, answer in cur:
         ans_list.append({'caseID': case_id, 'keywords': keywords, 'answer': answer})
