@@ -13,24 +13,18 @@ def sentence_detection(sentence):
 
     for token in sentence:
         check_word()
-    #print("Drin geblieben:"
-    #      "\nPos - Tag - Lemma \n")
-    #for checked_word in found_words:
-    #    print(word.Word.get_word(checked_word))
-    #print("-----------------------"
-    #      "\nOriginalsatz:"
-    #      "\n" + str(sentence) +
-    #      "\n-----------------------")
+    print("Drin geblieben:"
+          "\nPos - Tag - Lemma \n")
+    for checked_word in found_words:
+        print(word.Word.get_word(checked_word))
+    print("-----------------------"
+          "\nOriginalsatz:"
+          "\n" + str(sentence) +
+          "\n-----------------------")
     print("Neuer Satz:")
     for checked_word in found_words:
         new_sentence = new_sentence + " " + word.Word.get_lemma(checked_word)
-    print(new_sentence + "\n-----------------------")
-
-    #Build list of words which can be returned
-    words = []
-    for wd in found_words:
-        words.append(word.Word.get_lemma(wd))
-    return words
+    print(new_sentence + "\n -----------------------")
 
 
 # Als erstes wird der POS untersucht. Wenn einer der Fälle eintritt, wird das Wort nicht weiter beachtet,
@@ -39,14 +33,14 @@ def sentence_detection(sentence):
 def check_word():
     if not (token.pos_ == "AUX" or token.pos_ == "PUNCT" or token.pos_ == "PART"):
         check_specific()
-    #else:
-    #    print("Rausgeflogen wegen POS:"
-    #          " \nText: " + token.text +
-    #          " \nLemma: " + token.lemma_ +
-    #          " \nPos: " + token.pos_ +
-    #          " \nTag: " + token.tag_ +
-    #          " \nDep: " + token.dep_ +
-    #          " \n-----------------------")
+    else:
+        print("Rausgeflogen wegen POS:"
+              " \nText: " + token.text +
+              " \nLemma: " + token.lemma_ +
+              " \nPos: " + token.pos_ +
+              " \nTag: " + token.tag_ +
+              " \nDep: " + token.dep_ +
+              " \n-----------------------")
 
 
 # Nach dem POS wird der TAG untersucht. Wenn einer der Fälle eintritt, wird das Wort nicht gespeichert,
@@ -58,11 +52,11 @@ def check_specific():
             or token.tag_ == "PDS"):
         new_word = word.Word(token.pos_, token.tag_, token.lemma_, token.dep_)
         found_words.append(new_word)
-    #else:
-    #    print("Rausgeflogen wegen TAG:"
-    #          " \nText: " + token.text +
-    #          " \nLemma: " + token.lemma_ +
-    #         " \nPos: " + token.pos_ +
-    #          " \nTag: " + token.tag_ +
-    #          " \nDep: " + token.dep_ +
-    #          " \n-----------------------")
+    else:
+        print("Rausgeflogen wegen TAG:"
+              " \nText: " + token.text +
+              " \nLemma: " + token.lemma_ +
+              " \nPos: " + token.pos_ +
+              " \nTag: " + token.tag_ +
+              " \nDep: " + token.dep_ +
+              " \n-----------------------")
