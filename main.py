@@ -10,9 +10,9 @@ def evaluate_args():
     parser = argparse.ArgumentParser(description="Help of arguments used by the serverside of nao!")
     # Add arguments here
     parser.add_argument("--r", action="store_true", help="Run the server!")
-    parser.add_argument("--i", action="store_true", help="Import template data into database")
+    parser.add_argument("--i", action="store_true", help="Import template data into database!")
 
-    # Check for argmunets and do stuff with it
+    # Check for arguments and do stuff with it
     args = parser.parse_args()
     if args.i:
         print("t1")
