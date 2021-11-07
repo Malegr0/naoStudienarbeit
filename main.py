@@ -9,8 +9,8 @@ import configparser
 def evaluate_args():
     parser = argparse.ArgumentParser(description="Help of arguments used by the serverside of nao!")
     # Add arguments here
-    parser.add_argument("--r", action="store_true", help="Run the server!")
-    parser.add_argument("--i", action="store_true", help="Import template data into database!")
+    parser.add_argument("-r", action="store_true", help="Run the server!")
+    parser.add_argument("-i", action="store_true", help="Import template data into database!")
 
     # Check for arguments and do stuff with it
     args = parser.parse_args()
@@ -18,6 +18,8 @@ def evaluate_args():
         print("t1")
     if args.r:
         run_server()
+    if not (args.i and args.r):
+        print("Use -h to get help with the arguments!")
 
 
 def run_server():
