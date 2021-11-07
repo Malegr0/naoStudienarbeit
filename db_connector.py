@@ -8,6 +8,7 @@ from mariadb import Error, connect
 
 
 # TODO: Add check for empty list, raise EmptyListError
+# TODO: change output to real json object
 def get_all_synonyms() -> str:
     """Return all synonyms
 
@@ -37,7 +38,8 @@ def get_all_synonyms() -> str:
     return json_str
 
 
-#TODO: add checks for wrong returns, raise Error
+# TODO: add checks for wrong returns, raise Error
+# TODO: change output to real json object
 def get_all_generic_terms() -> str:
     """Return all generic terms
 
@@ -66,7 +68,8 @@ def get_all_generic_terms() -> str:
     return json_str
 
 
-#TODO: add checks for wrong returns, raise Error
+# TODO: add checks for wrong returns, raise Error
+# TODO: change output to real json object
 def get_all_answers() -> str:
     """Return all answers
 
