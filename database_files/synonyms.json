@@ -1,0 +1,222 @@
+[
+	{
+		"synonym": "brauchen",
+		"id": 1
+	},
+	{
+		"synonym": "brauche",
+		"id": 1
+	},
+	{
+		"synonym": "brauch",
+		"id": 1
+	},
+	{
+		"synonym": "br\u00e4uchte",
+		"id": 1
+	},
+	{
+		"synonym": " ben\u00f6tigen",
+		"id": 1
+	},
+	{
+		"synonym": "Studiengang",
+		"id": 2
+	},
+	{
+		"synonym": "Studieng\u00e4nge",
+		"id": 2
+	},
+	{
+		"synonym": "HWR",
+		"id": 3
+	},
+	{
+		"synonym": "Uni",
+		"id": 3
+	},
+	{
+		"synonym": "Universit\u00e4t",
+		"id": 3
+	},
+	{
+		"synonym": "Hochschule",
+		"id": 3
+	},
+	{
+		"synonym": "PTB",
+		"id": 4
+	},
+	{
+		"synonym": "Praxistransferbericht",
+		"id": 4
+	},
+	{
+		"synonym": "Praxistransferberichte",
+		"id": 4
+	},
+	{
+		"synonym": "PTBs",
+		"id": 4
+	},
+	{
+		"synonym": "schreiben",
+		"id": 5
+	},
+	{
+		"synonym": "verfassen",
+		"id": 5
+	},
+	{
+		"synonym": "Studienarbeiten",
+		"id": 6
+	},
+	{
+		"synonym": "informieren",
+		"id": 7
+	},
+	{
+		"synonym": "erkundigen",
+		"id": 7
+	},
+	{
+		"synonym": "Aufbau",
+		"id": 8
+	},
+	{
+		"synonym": "aufbauen",
+		"id": 8
+	},
+	{
+		"synonym": "zusammensetzen",
+		"id": 8
+	},
+	{
+		"synonym": "Zusammensetzung",
+		"id": 8
+	},
+	{
+		"synonym": "strukturieren",
+		"id": 8
+	},
+	{
+		"synonym": "Struktur",
+		"id": 8
+	},
+	{
+		"synonym": "Bachelor",
+		"id": 9
+	},
+	{
+		"synonym": "Bachelorabschluss",
+		"id": 9
+	},
+	{
+		"synonym": "Beruf",
+		"id": 10
+	},
+	{
+		"synonym": "Berufe",
+		"id": 10
+	},
+	{
+		"synonym": "Berufsfeld",
+		"id": 10
+	},
+	{
+		"synonym": "Berufsfelder",
+		"id": 10
+	},
+	{
+		"synonym": "Bachelorarbeit",
+		"id": 11
+	},
+	{
+		"synonym": "Bachelorthesis",
+		"id": 11
+	},
+	{
+		"synonym": "Modul",
+		"id": 12
+	},
+	{
+		"synonym": "Fach",
+		"id": 12
+	},
+	{
+		"synonym": "F\u00e4cher",
+		"id": 12
+	},
+	{
+		"synonym": "Module",
+		"id": 12
+	},
+	{
+		"synonym": "sagen",
+		"id": 13
+	},
+	{
+		"synonym": "sag",
+		"id": 13
+	},
+	{
+		"synonym": "erz\u00e4hlen",
+		"id": 13
+	},
+	{
+		"synonym": "erz\u00e4hl",
+		"id": 13
+	},
+	{
+		"synonym": "Gr\u00fcndung",
+		"id": 14
+	},
+	{
+		"synonym": "Student",
+		"id": 15
+	},
+	{
+		"synonym": "Studenten",
+		"id": 15
+	},
+	{
+		"synonym": "Studentin",
+		"id": 15
+	},
+	{
+		"synonym": "Studierende",
+		"id": 15
+	},
+	{
+		"synonym": "Studierender",
+		"id": 15
+	},
+	{
+		"synonym": "Sch\u00fcler",
+		"id": 15
+	},
+	{
+		"synonym": "Sch\u00fclerin",
+		"id": 15
+	},
+	{
+		"synonym": "haben",
+		"id": 16
+	},
+	{
+		"synonym": "hat",
+		"id": 16
+	},
+	{
+		"synonym": "besitzt",
+		"id": 16
+	},
+	{
+		"synonym": "besitzen",
+		"id": 16
+	},
+	{
+		"synonym": "gr\u00fcnden",
+		"id": 14
+	}
+]

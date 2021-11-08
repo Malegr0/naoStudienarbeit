@@ -1,0 +1,66 @@
+[
+	{
+		"id": 1,
+		"generic_term": "brauchen"
+	},
+	{
+		"id": 2,
+		"generic_term": "Studiengang"
+	},
+	{
+		"id": 3,
+		"generic_term": "HWR"
+	},
+	{
+		"id": 4,
+		"generic_term": "PTB"
+	},
+	{
+		"id": 5,
+		"generic_term": "schreiben"
+	},
+	{
+		"id": 6,
+		"generic_term": "Studienarbeit"
+	},
+	{
+		"id": 7,
+		"generic_term": "informieren"
+	},
+	{
+		"id": 8,
+		"generic_term": "Aufbau"
+	},
+	{
+		"id": 9,
+		"generic_term": "Bachelor"
+	},
+	{
+		"id": 10,
+		"generic_term": "Beruf"
+	},
+	{
+		"id": 11,
+		"generic_term": "Bachelorarbeit"
+	},
+	{
+		"id": 12,
+		"generic_term": "Modul"
+	},
+	{
+		"id": 13,
+		"generic_term": "erz\u00e4hlen"
+	},
+	{
+		"id": 14,
+		"generic_term": "gr\u00fcnden"
+	},
+	{
+		"id": 15,
+		"generic_term": "Student"
+	},
+	{
+		"id": 16,
+		"generic_term": "haben"
+	}
+]
