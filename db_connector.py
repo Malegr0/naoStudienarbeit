@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 # TODO: Specify Docs of function, add Doc for File and variables
 import sys
@@ -8,6 +8,7 @@ from mariadb import Error, connect
 
 
 # TODO: Add check for empty list, raise EmptyListError
+# TODO: change output to real json object
 def get_all_synonyms() -> str:
     """Return all synonyms
 
@@ -28,7 +29,7 @@ def get_all_synonyms() -> str:
         sys.exit(1)
 
     cur = con.cursor()
-    cur.execute("SELECT synonym, id FROM synonyms")
+    cur.execute("SELECT synonym, id FROM synonyms ORDER BY id")
     syn_list = []
     for synonym, syn_id in cur:
         syn_list.append({'synonym': synonym, 'id': syn_id})
@@ -37,7 +38,8 @@ def get_all_synonyms() -> str:
     return json_str
 
 
-#TODO: add checks for wrong returns, raise Error
+# TODO: add checks for wrong returns, raise Error
+# TODO: change output to real json object
 def get_all_generic_terms() -> str:
     """Return all generic terms
 
@@ -57,7 +59,7 @@ def get_all_generic_terms() -> str:
         sys.exit(1)
 
     cur = con.cursor()
-    cur.execute("SELECT id, generic_term FROM generic_terms")
+    cur.execute("SELECT id, generic_term FROM generic_terms ORDER BY id")
     gt_list = []
     for gt_id, generic_term in cur:
         gt_list.append({'id': gt_id, 'generic_term': generic_term})
@@ -66,7 +68,9 @@ def get_all_generic_terms() -> str:
     return json_str
 
 
-#TODO: add checks for wrong returns, raise Error
+# TODO: add checks for wrong returns, raise Error
+# TODO: change output to real json object
+# TODO: replace this function with get_all_answers2() if database is updated
 def get_all_answers() -> str:
     """Return all answers
 
@@ -86,10 +90,41 @@ def get_all_answers() -> str:
         sys.exit(1)
 
     cur = con.cursor()
-    cur.execute("SELECT caseID, keywords, answer FROM matching_table")
+    cur.execute("SELECT caseID, keywords, answer FROM matching_table ORDER BY caseID")
     ans_list = []
     for case_id, keywords, answer in cur:
         ans_list.append({'caseID': case_id, 'keywords': keywords, 'answer': answer})
+    json_str = json.dumps(ans_list)
+    con.close()
+    return json_str
+
+
+# TODO: add checks for wrong returns, raise error
+# TODO: change output to real json object
+def get_all_answers2():
+    """Return all answers
+
+    ADD DESCRIPTION
+
+    :return: JSON as string
+    """
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+    cur = con.cursor()
+    cur.execute("SELECT caseID, primary_keywords, secondary_keywords, answer FROM matching_table ORDER BY caseID")
+    ans_list = []
+    for case_id, primary_keywords, secondary_keywords, answer in cur:
+        ans_list.append(
+            {'caseID': case_id, 'primary_keywords': primary_keywords, 'secondary_keywords': secondary_keywords,
+             'answer': answer})
     json_str = json.dumps(ans_list)
     con.close()
     return json_str
@@ -179,7 +214,7 @@ def get_caseIDs_by_keywords(word: str):
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
     cur = con.cursor()
-    reqstr = f"SELECT caseID, keywords FROM matching_table where keywords LIKE '%{word}%'"
+    reqstr = f"SELECT caseID, keywords FROM matching_table WHERE keywords LIKE '%{word}%'"
     cur.execute(reqstr)
     cID = []
     for (caseID, keywords) in cur:
@@ -189,6 +224,27 @@ def get_caseIDs_by_keywords(word: str):
         return None
     con.close()
     return cID
+
+
+def get_weight_of_keyword(keyword: str) -> float:
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+    cur = con.cursor()
+    reqstr = f"SELECT weight FROM weights WHERE keyword='{keyword}'"
+    cur.execute(reqstr)
+    wgt = None
+    for (weight) in cur:
+        wgt = weight
+    con.close()
+    return wgt
 
 
 # TODO: Add checks for arguments to catch wrong data
@@ -275,7 +331,7 @@ def insert_synonyms(synonym: str, id: int):
 # def init_db_connection():
 #     """Initialize Database Connection
 #
-#     Initializes the connection to the database with spezific data.
+#     Initializes the connection to the database with specific data.
 #     """
 #     try:
 #         global conn
