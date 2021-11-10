@@ -5,8 +5,6 @@ import server
 import argparse
 import configparser
 
-import weighting
-
 
 def evaluate_args():
     parser = argparse.ArgumentParser(description="Help of arguments used by the serverside of nao!")
