@@ -5,6 +5,8 @@ import server
 import argparse
 import configparser
 
+import weighting
+
 
 def evaluate_args():
     parser = argparse.ArgumentParser(description="Help of arguments used by the serverside of nao!")
@@ -31,5 +33,7 @@ def run_server():
 
 
 if __name__ == '__main__':
-    evaluate_args()
+    keyword = ['Informatik', 'Studium', 'was', 'für', 'in', 'Informatik', 'HWR', 'wer', 'wo', 'Standort', 'Studium']
+    weighting.calculate_weight(keyword)
+    # evaluate_args()
     print("Skript done!")
