@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 
 # calculate weightings of distinct keywords from input list
+# TODO: check if calculation of weighting is correct
 def calculate_weight(keywords: list) -> list:
     weightings = []
     keywords_amount = len(keywords)

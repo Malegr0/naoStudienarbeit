@@ -1,8 +1,5 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
-
-# TODO: Change keyword_weight value to come from method
-
 import db_connector
 
 
