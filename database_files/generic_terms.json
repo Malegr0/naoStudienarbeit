@@ -62,5 +62,13 @@
 	{
 		"id": 16,
 		"generic_term": "haben"
+	},
+	{
+		"id": 17,
+		"generic_term": "bewerben"
+	},
+	{
+		"id": 18,
+		"generic_term": "Informatikstudium"
 	}
 ]
