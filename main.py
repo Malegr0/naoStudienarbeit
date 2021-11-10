@@ -33,7 +33,5 @@ def run_server():
 
 
 if __name__ == '__main__':
-    keyword = ['Informatik', 'Studium', 'was', 'für', 'in', 'Informatik', 'HWR', 'wer', 'wo', 'Standort', 'Studium']
-    print(weighting.calculate_weight(keyword))
-    # evaluate_args()
+    evaluate_args()
     print("Skript done!")
