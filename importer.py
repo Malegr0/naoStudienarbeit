@@ -5,7 +5,7 @@ import json
 import db_connector
 
 
-def importer():
+def import_data():
     answers = json.load(open('database_files/answers.json'))
     generic_terms = json.load(open('database_files/generic_terms.json'))
     synonyms = json.load(open('database_files/synonyms.json'))

@@ -17,7 +17,7 @@ def evaluate_args():
     # Check for arguments and do stuff with it
     args = parser.parse_args()
     if args.i:
-        print("t1")
+        importer.import_data()
     if args.r:
         run_server()
     if not (args.i and args.r):
@@ -31,6 +31,5 @@ def run_server():
 
 
 if __name__ == '__main__':
-    #evaluate_args()
-    importer.importer()
+    evaluate_args()
     print("Skript done!")
