@@ -248,7 +248,7 @@ def get_weight_of_keyword(keyword: str) -> float:
 
 
 # TODO: Add checks for arguments to catch wrong data
-def insert_answers(case_id: int, keywords: str, answer: str):
+def insert_answers(case_id: int, primary_keywords: str, secondary_keywords: str, answer: str):
     """Insert data into matching table
 
     :param case_id: The id as integer of the specific answer.
@@ -269,10 +269,12 @@ def insert_answers(case_id: int, keywords: str, answer: str):
 
     # Get cursor
     cur = con.cursor()
-    cur.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (case_id, keywords, answer))
+    cur.execute("INSERT INTO matching_table (caseID, primary_keywords, secondary_keywords, answer) VALUES (?, ?, ?)",
+                (case_id, primary_keywords, secondary_keywords, answer))
     con.commit()
     con.close()
-    print("Answer inserted with case_id=" + case_id + ", keywords=" + keywords + " and answer=" + answer)
+    print("Answer inserted with case_id=" + case_id + ", primary_keywords=" + primary_keywords + ", secondary_keywords="
+          + secondary_keywords + " and answer=" + answer)
 
 
 # TODO: Add checks for arguments to catch wrong data

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
-
+import importer
 import server
 import argparse
 import configparser
@@ -31,5 +31,6 @@ def run_server():
 
 
 if __name__ == '__main__':
-    evaluate_args()
+    #evaluate_args()
+    importer.importer()
     print("Skript done!")
