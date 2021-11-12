@@ -274,8 +274,8 @@ def insert_answers(case_id: int, primary_keywords: str, secondary_keywords: str,
                 (case_id, primary_keywords, secondary_keywords, answer))
     con.commit()
     con.close()
-    print("Answer inserted with case_id=" + case_id + ", primary_keywords=" + primary_keywords + ", secondary_keywords="
-          + secondary_keywords + " and answer=" + answer)
+    print("Answer inserted with case_id=" + str(case_id) + ", primary_keywords=" + primary_keywords +
+          ", secondary_keywords=" + secondary_keywords + " and answer=" + answer)
 
 
 # TODO: Add checks for arguments to catch wrong data
