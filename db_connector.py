@@ -302,7 +302,7 @@ def insert_generic_terms(id: int, generic_term: str):
     cur.execute("INSERT INTO generic_terms (id, generic_term) VALUES (?, ?)", (id, generic_term))
     con.commit()
     con.close()
-    print("Generic term inserted with id=" + id + " and generic_term=" + generic_term)
+    print("Generic term inserted with id=" + str(id) + " and generic_term=" + generic_term)
 
 
 # TODO: Add checks for arguments to catch wrong data
@@ -329,7 +329,7 @@ def insert_synonyms(synonym: str, id: int):
     cur.execute("INSERT INTO synonyms (synonym, id) VALUES (?, ?)", (synonym, id))
     con.commit()
     con.close()
-    print("Synonym inserted with synonym=" + synonym + " and id=" + id)
+    print("Synonym inserted with synonym=" + synonym + " and id=" + str(id))
 
 # def init_db_connection():
 #     """Initialize Database Connection
