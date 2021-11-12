@@ -68,40 +68,9 @@ def get_all_generic_terms() -> str:
     return json_str
 
 
-# TODO: add checks for wrong returns, raise Error
-# TODO: change output to real json object
-# TODO: replace this function with get_all_answers2() if database is updated
-def get_all_answers() -> str:
-    """Return all answers
-
-    ADD DESCRIPTION
-
-    :return: JSON as string
-    """
-    try:
-        con = connect(
-            host='127.0.0.1',
-            port=3306,
-            user="naouser",
-            password="Asube-2015!",
-            database="nao")
-    except Error as e:
-        print("Error connecting to MariaDB Platform: ", e)
-        sys.exit(1)
-
-    cur = con.cursor()
-    cur.execute("SELECT caseID, keywords, answer FROM matching_table ORDER BY caseID")
-    ans_list = []
-    for case_id, keywords, answer in cur:
-        ans_list.append({'caseID': case_id, 'keywords': keywords, 'answer': answer})
-    json_str = json.dumps(ans_list)
-    con.close()
-    return json_str
-
-
 # TODO: add checks for wrong returns, raise error
 # TODO: change output to real json object
-def get_all_answers2():
+def get_all_answers():
     """Return all answers
 
     ADD DESCRIPTION
