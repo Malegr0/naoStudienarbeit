@@ -252,7 +252,8 @@ def insert_answers(case_id: int, primary_keywords: str, secondary_keywords: str,
     """Insert data into matching table
 
     :param case_id: The id as integer of the specific answer.
-    :param keywords: Each keyword as string to identify the answer.
+    :param primary_keywords: Each primary keyword as string to identify the answer.
+    :param secondary_keywords: Each secondary keyword as string to identify the answer.
     :param answer: The answer as string which will be said by nao.
     :return:
     """
@@ -269,7 +270,7 @@ def insert_answers(case_id: int, primary_keywords: str, secondary_keywords: str,
 
     # Get cursor
     cur = con.cursor()
-    cur.execute("INSERT INTO matching_table (caseID, primary_keywords, secondary_keywords, answer) VALUES (?, ?, ?)",
+    cur.execute("INSERT INTO matching_table (caseID, primary_keywords, secondary_keywords, answer) VALUES (?, ?, ?, ?)",
                 (case_id, primary_keywords, secondary_keywords, answer))
     con.commit()
     con.close()
