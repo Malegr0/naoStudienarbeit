@@ -228,11 +228,11 @@ def get_weights():
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
     cur = con.cursor()
-    reqstr = f"SELECT term, weight FROM weights"
+    reqstr = f"SELECT keyword, weight FROM weights"
     cur.execute(reqstr)
     weights = []
-    for term, weight in cur:
-        weights.append({'term': term, 'weight': weight})
+    for keyword, weight in cur:
+        weights.append({'keyword': keyword, 'weight': weight})
     json_str = json.dumps(weights)
     con.close()
     return json_str
