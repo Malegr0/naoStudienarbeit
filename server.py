@@ -71,3 +71,9 @@ def synonyms():
         return 'OK'
     else:
         return db_connector.get_all_synonyms()
+
+
+@app.route('/wights', methods=['GET'])
+def synonyms():
+    return db_connector.get_weights()
+

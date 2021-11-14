@@ -216,6 +216,28 @@ def get_weight_of_keyword(keyword: str) -> float:
     return wgt
 
 
+def get_weights():
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+    cur = con.cursor()
+    reqstr = f"SELECT term, weight FROM weights"
+    cur.execute(reqstr)
+    weights = []
+    for term, weight in cur:
+        weights.append({'term': term, 'weight': weight})
+    json_str = json.dumps(weights)
+    con.close()
+    return json_str
+
+
 # TODO: Add checks for arguments to catch wrong data
 def insert_answers(case_id: int, primary_keywords: str, secondary_keywords: str, answer: str):
     """Insert data into matching table
