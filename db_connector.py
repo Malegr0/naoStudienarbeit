@@ -347,6 +347,25 @@ def insert_synonyms(synonym: str, id: int):
     print("Synonym inserted with synonym=" + synonym + " and id=" + str(id))
 
 
+def insert_weight(keyword: str, weight: float):
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    # Get cursor
+    cur = con.cursor()
+    cur.execute("INSERT INTO weights (keyword, weight) VALUES (?, ?)", (keyword, weight))
+    con.commit()
+    con.close()
+    print("keyword=" + keyword + " with weight=" + weight + " inserted")
+
 def clear_tables():
     """Clears all 4 tables in the database
 

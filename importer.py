@@ -3,6 +3,7 @@
 
 import json
 import db_connector
+import weighting
 
 
 def import_data():
@@ -17,5 +18,8 @@ def import_data():
         db_connector.insert_generic_terms(generic_term["id"], generic_term["generic_term"])
     for synonym in synonyms:
         db_connector.insert_synonyms(synonym["synonym"], synonym["id"])
+    weights = weighting.calculate_weight()
+    for weight in weights:
+        db_connector.insert_weight(weight["keyword"], weight["count"])
     return True
 
