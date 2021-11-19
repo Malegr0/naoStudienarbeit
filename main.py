@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
-
+import importer
 import server
 import argparse
 import configparser
@@ -17,17 +17,17 @@ def evaluate_args():
     # Check for arguments and do stuff with it
     args = parser.parse_args()
     if args.i:
-        print("t1")
+        importer.import_data()
     if args.r:
         run_server()
-    if not (args.i and args.r):
+    if not (args.i or args.r):
         print("Use -h to get help with the arguments!")
 
 
 def run_server():
     config = configparser.ConfigParser()
     config.read("config.ini")
-    server.app.run(host=config.get('server', 'host'), port=config.get('server', 'port'))
+    server.app.run(host=config.get('server', 'host'), port=config.get('server', 'port'), use_reloader=False)
 
 
 if __name__ == '__main__':

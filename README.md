@@ -64,7 +64,11 @@ create table nao.generic_terms (id int, generic_term varchar(255));
 ```
 create table nao.matching_table (caseID int, keywords text, answer text);
 ```
-6. Create a user to access the database. (You can change the credentials but keep in mind that you have to change it in the script as well.)
+6. Create a table called weights.
+```
+create table nao.weights (keyword text, weight float);
+```
+7. Create a user to access the database. (You can change the credentials but keep in mind that you have to change it in the script as well.)
 ```
 create user 'naouser'@'localhost' identified by 'Asube-2015!';
 grant all privileges on nao.* 'naouser'@'localhost';

@@ -68,40 +68,9 @@ def get_all_generic_terms() -> str:
     return json_str
 
 
-# TODO: add checks for wrong returns, raise Error
-# TODO: change output to real json object
-# TODO: replace this function with get_all_answers2() if database is updated
-def get_all_answers() -> str:
-    """Return all answers
-
-    ADD DESCRIPTION
-
-    :return: JSON as string
-    """
-    try:
-        con = connect(
-            host='127.0.0.1',
-            port=3306,
-            user="naouser",
-            password="Asube-2015!",
-            database="nao")
-    except Error as e:
-        print("Error connecting to MariaDB Platform: ", e)
-        sys.exit(1)
-
-    cur = con.cursor()
-    cur.execute("SELECT caseID, keywords, answer FROM matching_table ORDER BY caseID")
-    ans_list = []
-    for case_id, keywords, answer in cur:
-        ans_list.append({'caseID': case_id, 'keywords': keywords, 'answer': answer})
-    json_str = json.dumps(ans_list)
-    con.close()
-    return json_str
-
-
 # TODO: add checks for wrong returns, raise error
 # TODO: change output to real json object
-def get_all_answers2():
+def get_all_answers():
     """Return all answers
 
     ADD DESCRIPTION
@@ -128,6 +97,30 @@ def get_all_answers2():
     json_str = json.dumps(ans_list)
     con.close()
     return json_str
+
+
+def get_all_keywords() -> list:
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+    cur = con.cursor()
+    cur.execute("SELECT primary_keywords, secondary_keywords FROM matching_table")
+    keywords = []
+    for primary_keywords, secondary_keywords in cur:
+        kwords = primary_keywords.split(",")
+        for kword in kwords:
+            keywords.append(kword)
+        kwords = secondary_keywords.split(",")
+        for kword in kwords:
+            keywords.append(kword)
+    return keywords
 
 
 # TODO: add checks for wrong returns, raise Error
@@ -247,12 +240,35 @@ def get_weight_of_keyword(keyword: str) -> float:
     return wgt
 
 
+def get_weights():
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+    cur = con.cursor()
+    reqstr = f"SELECT keyword, weight FROM weights"
+    cur.execute(reqstr)
+    weights = []
+    for keyword, weight in cur:
+        weights.append({'keyword': keyword, 'weight': weight})
+    json_str = json.dumps(weights)
+    con.close()
+    return json_str
+
+
 # TODO: Add checks for arguments to catch wrong data
-def insert_answers(case_id: int, keywords: str, answer: str):
+def insert_answers(case_id: int, primary_keywords: str, secondary_keywords: str, answer: str):
     """Insert data into matching table
 
     :param case_id: The id as integer of the specific answer.
-    :param keywords: Each keyword as string to identify the answer.
+    :param primary_keywords: Each primary keyword as string to identify the answer.
+    :param secondary_keywords: Each secondary keyword as string to identify the answer.
     :param answer: The answer as string which will be said by nao.
     :return:
     """
@@ -269,10 +285,12 @@ def insert_answers(case_id: int, keywords: str, answer: str):
 
     # Get cursor
     cur = con.cursor()
-    cur.execute("INSERT INTO matching_table (caseID, keywords, answer) VALUES (?, ?, ?)", (case_id, keywords, answer))
+    cur.execute("INSERT INTO matching_table (caseID, primary_keywords, secondary_keywords, answer) VALUES (?, ?, ?, ?)",
+                (case_id, primary_keywords, secondary_keywords, answer))
     con.commit()
     con.close()
-    print("Answer inserted with case_id=" + case_id + ", keywords=" + keywords + " and answer=" + answer)
+    print("Answer inserted with case_id=" + str(case_id) + ", primary_keywords=" + primary_keywords +
+          ", secondary_keywords=" + secondary_keywords + " and answer=" + answer)
 
 
 # TODO: Add checks for arguments to catch wrong data
@@ -299,7 +317,7 @@ def insert_generic_terms(id: int, generic_term: str):
     cur.execute("INSERT INTO generic_terms (id, generic_term) VALUES (?, ?)", (id, generic_term))
     con.commit()
     con.close()
-    print("Generic term inserted with id=" + id + " and generic_term=" + generic_term)
+    print("Generic term inserted with id=" + str(id) + " and generic_term=" + generic_term)
 
 
 # TODO: Add checks for arguments to catch wrong data
@@ -326,7 +344,52 @@ def insert_synonyms(synonym: str, id: int):
     cur.execute("INSERT INTO synonyms (synonym, id) VALUES (?, ?)", (synonym, id))
     con.commit()
     con.close()
-    print("Synonym inserted with synonym=" + synonym + " and id=" + id)
+    print("Synonym inserted with synonym=" + synonym + " and id=" + str(id))
+
+
+def insert_weight(keyword: str, weight: float):
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    # Get cursor
+    cur = con.cursor()
+    cur.execute("INSERT INTO weights (keyword, weight) VALUES (?, ?)", (keyword, weight))
+    con.commit()
+    con.close()
+    print("keyword=" + keyword + " with weight=" + str(weight) + " inserted")
+
+def clear_tables():
+    """Clears all 4 tables in the database
+
+    :return: no return
+    """
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    # Get cursor
+    cur = con.cursor()
+    cur.execute("DELETE FROM matching_table")
+    cur.execute("DELETE FROM synonyms")
+    cur.execute("DELETE FROM generic_terms")
+    cur.execute("DELETE FROM weights")
+    con.commit()
+    con.close()
 
 # def init_db_connection():
 #     """Initialize Database Connection

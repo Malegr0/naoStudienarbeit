@@ -1,9 +1,13 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
 
+import db_connector
+
+
 # calculate weightings of distinct keywords from input list
 # TODO: check if calculation of weighting is correct
-def calculate_weight(keywords: list) -> list:
+def calculate_weight() -> list:
+    keywords = db_connector.get_all_keywords()
     weightings = []
     keywords_amount = len(keywords)
     for word in keywords:
