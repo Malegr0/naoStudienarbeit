@@ -322,6 +322,35 @@ def insert_synonyms(synonym: str, id: int):
     con.close()
     print("Synonym inserted with synonym=" + synonym + " and id=" + str(id))
 
+
+def clear_tables():
+    """Clears all 4 tables in the database
+
+    :return: no return
+    """
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+
+    # Get cursor
+    cur = con.cursor()
+    cur.execute("DELETE FROM matching_table")
+    cur.commit()
+    cur.execute("DELETE FROM synonyms")
+    cur.commit()
+    cur.execute("DELETE FROM generic_terms")
+    cur.commit()
+    cur.execute("DELETE FROM weights")
+    cur.commit()
+    con.close()
+
 # def init_db_connection():
 #     """Initialize Database Connection
 #
