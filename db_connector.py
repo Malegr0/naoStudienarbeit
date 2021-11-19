@@ -364,7 +364,7 @@ def insert_weight(keyword: str, weight: float):
     cur.execute("INSERT INTO weights (keyword, weight) VALUES (?, ?)", (keyword, weight))
     con.commit()
     con.close()
-    print("keyword=" + keyword + " with weight=" + weight + " inserted")
+    print("keyword=" + keyword + " with weight=" + str(weight) + " inserted")
 
 def clear_tables():
     """Clears all 4 tables in the database
@@ -385,13 +385,9 @@ def clear_tables():
     # Get cursor
     cur = con.cursor()
     cur.execute("DELETE FROM matching_table")
-    #cur.commit()
     cur.execute("DELETE FROM synonyms")
-    #cur.commit()
     cur.execute("DELETE FROM generic_terms")
-    #cur.commit()
     cur.execute("DELETE FROM weights")
-    #cur.commit()
     con.close()
 
 # def init_db_connection():
