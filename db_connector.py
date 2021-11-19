@@ -388,6 +388,7 @@ def clear_tables():
     cur.execute("DELETE FROM synonyms")
     cur.execute("DELETE FROM generic_terms")
     cur.execute("DELETE FROM weights")
+    cur.commit()
     con.close()
 
 # def init_db_connection():
