@@ -99,6 +99,30 @@ def get_all_answers():
     return json_str
 
 
+def get_all_keywords() -> list:
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+    cur = con.cursor()
+    cur.execute("SELECT primary_keywords, secondary_keywords FROM matching_table")
+    keywords = []
+    for primary_keywords, secondary_keywords in cur:
+        kwords = primary_keywords.split(",")
+        for kword in kwords:
+            keywords.append(kword)
+        kwords = secondary_keywords.split(",")
+        for kword in kwords:
+            keywords.append(kword)
+    return keywords
+
+
 # TODO: add checks for wrong returns, raise Error
 def get_generic_term(synonym: str) -> str:
     """Searchs for the generic term of a synonym.
