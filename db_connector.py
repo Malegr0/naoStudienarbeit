@@ -385,13 +385,13 @@ def clear_tables():
     # Get cursor
     cur = con.cursor()
     cur.execute("DELETE FROM matching_table")
-    cur.commit()
+    #cur.commit()
     cur.execute("DELETE FROM synonyms")
-    cur.commit()
+    #cur.commit()
     cur.execute("DELETE FROM generic_terms")
-    cur.commit()
+    #cur.commit()
     cur.execute("DELETE FROM weights")
-    cur.commit()
+    #cur.commit()
     con.close()
 
 # def init_db_connection():
