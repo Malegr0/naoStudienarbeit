@@ -232,7 +232,7 @@ def get_weight_of_keyword(keyword: str) -> float:
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
     cur = con.cursor()
-    reqstr = f"SELECT weight FROM weights WHERE keyword='{keyword}'"
+    reqstr = f"SELECT weight, keyword FROM weights WHERE keyword='{keyword}'"
     cur.execute(reqstr)
     wgt = None
     for weight in cur:
