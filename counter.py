@@ -45,10 +45,10 @@ def check_for_highest_id(question: list, counter: list) -> int:
             case_id = counter[i].get("case_id")
         elif highest_count == counter[i].get("count"):
             t_case_id = check_for_higher_id(question, case_id, counter[i].get("case_id"))
+            print(case_id)
             if t_case_id is not None:
                 case_id = t_case_id
         i += 1
-    print(case_id)
     return case_id
 
 
