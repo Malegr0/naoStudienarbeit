@@ -48,6 +48,7 @@ def check_for_highest_id(question: list, counter: list) -> int:
             if t_case_id is not None:
                 case_id = t_case_id
         i += 1
+    print(case_id)
     return case_id
 
 
