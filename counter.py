@@ -6,7 +6,7 @@ import db_connector
 def count_ids(question: list) -> int:
     counter = None
     for word in question:
-        keyword_weight = Abfrage2(word)
+        keyword_weight = db_connector.get_weight_of_keyword(word)
         ids = db_connector.get_caseIDs_by_keywords(word)
         if ids is None:
             continue
