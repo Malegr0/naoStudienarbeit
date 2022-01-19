@@ -63,7 +63,7 @@ def check_for_higher_id(question: list, case_id: int, new_case_id: int) -> int:
             case_id_counter += 1
         if word in new_case_id_keywords:
             new_case_id_counter += 1
-    if case_id_counter > new_case_id_counter or case_id_counter == new_case_id_counter:
+    if case_id_counter >= new_case_id_counter:
         return case_id
     else:
         return new_case_id
