@@ -12,7 +12,6 @@ def count_ids(question: list) -> int:
             continue
         for case_id in ids:
             counter = check_list(counter, case_id, keyword_weight)
-    print(counter)
     return check_for_highest_id(question, counter)
 
 
@@ -41,16 +40,13 @@ def check_for_highest_id(question: list, counter: list) -> int:
         if highest_count is None:
             highest_count = counter[i].get("count")
             case_id = counter[i].get("case_id")
-            print("First " + str(case_id))
         elif highest_count < counter[i].get("count"):
             highest_count = counter[i].get("count")
             case_id = counter[i].get("case_id")
-            print("Second " + str(case_id))
         elif highest_count == counter[i].get("count"):
             t_case_id = check_for_higher_id(question, case_id, counter[i].get("case_id"))
             if t_case_id is not None:
                 case_id = t_case_id
-            print("Third " + str(case_id))
         i += 1
     return case_id
 

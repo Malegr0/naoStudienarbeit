@@ -187,7 +187,6 @@ def get_answer(case_id: int) -> str:
     # Get cursor
     cur = con.cursor()
     reqstr = f"SELECT answer FROM matching_table WHERE caseID={case_id}"
-    print(reqstr)
     cur.execute(reqstr)
     ans = None
     for answer in cur:
