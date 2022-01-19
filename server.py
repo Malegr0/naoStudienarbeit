@@ -31,7 +31,6 @@ def get_request():
         found_words[i] = wd
         i += 1
     caseID = counter.count_ids(found_words)
-    print(caseID)
     if caseID is None:
         return jsonify("Ich habe diese Frage nicht verstanden oder ich habe dazu leider keine Antwort.")
     answer = db_connector.get_answer(caseID)
