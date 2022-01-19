@@ -1,8 +1,7 @@
 import word
 
 
-# Funktion erhält deen erkannten Satz und verarbeitet diesen pro Wort in einer Schleife.
-# Das erste Wort wird in Lowercase umgewandelt, um Erkennungsfehler zu vermeiden.
+# Funktion erhält den erkannten Satz und verarbeitet diesen pro Wort in einer Schleife.
 # Danach wird das Wort genauestens untersucht. Am Ende wird der Originalsatz mit dem nun gekürzten Satz verglichen.
 def sentence_detection(sentence):
     global token

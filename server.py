@@ -24,6 +24,7 @@ def get_request():
     found_words = sentence_algorithm.sentence_detection(doc)
     i = 0
     while i < len(found_words):
+        found_words[i] = found_words[i].lower()
         wd = db_connector.get_generic_term(found_words[i])
         if wd is None:
             i += 1

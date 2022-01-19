@@ -20,43 +20,43 @@
 		"id": 1
 	},
 	{
-		"synonym": "Studiengang",
+		"synonym": "studiengang",
 		"id": 2
 	},
 	{
-		"synonym": "Studieng\u00e4nge",
+		"synonym": "studieng\u00e4nge",
 		"id": 2
 	},
 	{
-		"synonym": "HWR",
+		"synonym": "hwr",
 		"id": 3
 	},
 	{
-		"synonym": "Uni",
+		"synonym": "uni",
 		"id": 3
 	},
 	{
-		"synonym": "Universit\u00e4t",
+		"synonym": "universit\u00e4t",
 		"id": 3
 	},
 	{
-		"synonym": "Hochschule",
+		"synonym": "hochschule",
 		"id": 3
 	},
 	{
-		"synonym": "PTB",
+		"synonym": "ptb",
 		"id": 4
 	},
 	{
-		"synonym": "Praxistransferbericht",
+		"synonym": "praxistransferbericht",
 		"id": 4
 	},
 	{
-		"synonym": "Praxistransferberichte",
+		"synonym": "praxistransferberichte",
 		"id": 4
 	},
 	{
-		"synonym": "PTBs",
+		"synonym": "ptbs",
 		"id": 4
 	},
 	{
@@ -68,11 +68,11 @@
 		"id": 5
 	},
 	{
-		"synonym": "Studienarbeit",
+		"synonym": "studienarbeit",
 		"id": 6
 	},
 	{
-		"synonym": "Studienarbeiten",
+		"synonym": "studienarbeiten",
 		"id": 6
 	},
 	{
@@ -88,11 +88,11 @@
 		"id": 7
 	},
 	{
-		"synonym": "Information",
+		"synonym": "information",
 		"id": 7
 	},
 	{
-		"synonym": "Aufbau",
+		"synonym": "aufbau",
 		"id": 8
 	},
 	{
@@ -104,7 +104,7 @@
 		"id": 8
 	},
 	{
-		"synonym": "Zusammensetzung",
+		"synonym": "zusammensetzung",
 		"id": 8
 	},
 	{
@@ -112,7 +112,7 @@
 		"id": 8
 	},
 	{
-		"synonym": "Struktur",
+		"synonym": "struktur",
 		"id": 8
 	},
 	{
@@ -132,51 +132,51 @@
 		"id": 8
 	},
 	{
-		"synonym": "Bachelor",
+		"synonym": "bachelor",
 		"id": 9
 	},
 	{
-		"synonym": "Bachelorabschluss",
+		"synonym": "bachelorabschluss",
 		"id": 9
 	},
 	{
-		"synonym": "Beruf",
+		"synonym": "beruf",
 		"id": 10
 	},
 	{
-		"synonym": "Berufe",
+		"synonym": "berufe",
 		"id": 10
 	},
 	{
-		"synonym": "Berufsfeld",
+		"synonym": "berufsfeld",
 		"id": 10
 	},
 	{
-		"synonym": "Berufsfelder",
+		"synonym": "berufsfelder",
 		"id": 10
 	},
 	{
-		"synonym": "Bachelorarbeit",
+		"synonym": "bachelorarbeit",
 		"id": 11
 	},
 	{
-		"synonym": "Bachelorthesis",
+		"synonym": "bachelorthesis",
 		"id": 11
 	},
 	{
-		"synonym": "Modul",
+		"synonym": "modul",
 		"id": 12
 	},
 	{
-		"synonym": "Fach",
+		"synonym": "fach",
 		"id": 12
 	},
 	{
-		"synonym": "F\u00e4cher",
+		"synonym": "f\u00e4cher",
 		"id": 12
 	},
 	{
-		"synonym": "Module",
+		"synonym": "module",
 		"id": 12
 	},
 	{
@@ -196,7 +196,7 @@
 		"id": 13
 	},
 	{
-		"synonym": "Gr\u00fcndung",
+		"synonym": "gr\u00fcndung",
 		"id": 14
 	},
 	{
@@ -204,39 +204,39 @@
 		"id": 14
 	},
 	{
-		"synonym": "Student",
+		"synonym": "student",
 		"id": 15
 	},
 	{
-		"synonym": "Studenten",
+		"synonym": "studenten",
 		"id": 15
 	},
 	{
-		"synonym": "Studentin",
+		"synonym": "studentin",
 		"id": 15
 	},
 	{
-		"synonym": "Studierende",
+		"synonym": "studierende",
 		"id": 15
 	},
 	{
-		"synonym": "Studierender",
+		"synonym": "studierender",
 		"id": 15
 	},
 	{
-		"synonym": "Sch\u00fcler",
+		"synonym": "sch\u00fcler",
 		"id": 15
 	},
 	{
-		"synonym": "Sch\u00fclerin",
+		"synonym": "sch\u00fclerin",
 		"id": 15
 	},
 	{
-		"synonym": "Person",
+		"synonym": "person",
 		"id": 15
 	},
 	{
-		"synonym": "Personen",
+		"synonym": "personen",
 		"id": 15
 	},
 	{
@@ -260,7 +260,7 @@
 		"id": 17
 	},
 	{
-		"synonym": "Bewerbung",
+		"synonym": "bewerbung",
 		"id": 17
 	},
 	{
@@ -272,11 +272,11 @@
 		"id": 17
 	},
 	{
-		"synonym": "Informatikstudiengang",
+		"synonym": "informatikstudiengang",
 		"id": 18
 	},
 	{
-		"synonym": "Informatikstudium",
+		"synonym": "informatikstudium",
 		"id": 18
 	}
 ]

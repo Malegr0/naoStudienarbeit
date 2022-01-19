@@ -5,15 +5,15 @@
 	},
 	{
 		"id": 2,
-		"generic_term": "Studiengang"
+		"generic_term": "studiengang"
 	},
 	{
 		"id": 3,
-		"generic_term": "HWR"
+		"generic_term": "hwr"
 	},
 	{
 		"id": 4,
-		"generic_term": "PTB"
+		"generic_term": "ptb"
 	},
 	{
 		"id": 5,
@@ -21,7 +21,7 @@
 	},
 	{
 		"id": 6,
-		"generic_term": "Studienarbeit"
+		"generic_term": "studienarbeit"
 	},
 	{
 		"id": 7,
@@ -29,23 +29,23 @@
 	},
 	{
 		"id": 8,
-		"generic_term": "Aufbau"
+		"generic_term": "aufbau"
 	},
 	{
 		"id": 9,
-		"generic_term": "Bachelor"
+		"generic_term": "bachelor"
 	},
 	{
 		"id": 10,
-		"generic_term": "Beruf"
+		"generic_term": "beruf"
 	},
 	{
 		"id": 11,
-		"generic_term": "Bachelorarbeit"
+		"generic_term": "bachelorarbeit"
 	},
 	{
 		"id": 12,
-		"generic_term": "Modul"
+		"generic_term": "modul"
 	},
 	{
 		"id": 13,
@@ -57,7 +57,7 @@
 	},
 	{
 		"id": 15,
-		"generic_term": "Student"
+		"generic_term": "student"
 	},
 	{
 		"id": 16,
@@ -69,6 +69,6 @@
 	},
 	{
 		"id": 18,
-		"generic_term": "Informatikstudium"
+		"generic_term": "informatikstudium"
 	}
 ]
