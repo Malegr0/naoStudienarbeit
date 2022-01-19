@@ -212,7 +212,7 @@ def get_caseIDs_by_keywords(word: str):
     cur.execute(reqstr)
     cID = []
     for (caseID) in cur:
-        cID.append(caseID)
+        cID.append(caseID[0])
     if len(cID) == 0:
         con.close()
         return None
