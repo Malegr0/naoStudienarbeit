@@ -240,6 +240,27 @@ def get_weight_of_keyword(keyword: str) -> float:
     return wgt
 
 
+def get_primary_keywords_by_caseID(caseID: int):
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+    cur = con.cursor()
+    reqstr = f"SELECT primary_keywords FROM answers WHERE caseID='{caseID}'"
+    cur.execute(reqstr)
+    pri_key = None
+    for (primary_keywords) in cur:
+        pri_key = primary_keywords
+    con.close()
+    return pri_key
+
+
 def get_weights():
     try:
         con = connect(
