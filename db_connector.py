@@ -252,7 +252,7 @@ def get_primary_keywords_by_caseID(caseID: int):
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
     cur = con.cursor()
-    reqstr = f"SELECT primary_keywords FROM answers WHERE caseID='{caseID}'"
+    reqstr = f"SELECT primary_keywords FROM matching_table WHERE caseID='{caseID}'"
     cur.execute(reqstr)
     pri_key = None
     for (primary_keywords) in cur:
