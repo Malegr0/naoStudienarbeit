@@ -157,7 +157,7 @@ def get_generic_term(synonym: str) -> str:
     reqstr = f"SELECT generic_term, id FROM generic_terms WHERE id={synonym_id}"
     cur.execute(reqstr)
     gen_term = None
-    for (generic_term, id) in cur:
+    for generic_term, id in cur:
         gen_term = generic_term
     con.close()
     return gen_term
@@ -235,7 +235,7 @@ def get_weight_of_keyword(keyword: str) -> float:
     reqstr = f"SELECT weight FROM weights WHERE keyword='{keyword}'"
     cur.execute(reqstr)
     wgt = None
-    for (weight) in cur:
+    for weight in cur:
         wgt = weight
     con.close()
     return wgt
