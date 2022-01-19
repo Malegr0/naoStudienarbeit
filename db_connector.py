@@ -157,7 +157,7 @@ def get_generic_term(synonym: str) -> str:
     reqstr = f"SELECT generic_term, id FROM generic_terms WHERE id={synonym_id}"
     cur.execute(reqstr)
     gen_term = None
-    for (generic_term, id) in cur:
+    for generic_term, id in cur:
         gen_term = generic_term
     con.close()
     return gen_term
@@ -186,11 +186,11 @@ def get_answer(case_id: int) -> str:
 
     # Get cursor
     cur = con.cursor()
-    reqstr = f"SELECT answer, caseID FROM matching_table WHERE caseID={case_id}"
+    reqstr = f"SELECT answer FROM matching_table WHERE caseID={case_id}"
     cur.execute(reqstr)
     ans = None
-    for (answer, caseID) in cur:
-        ans = answer
+    for answer in cur:
+        ans = answer[0]
     con.close()
     return ans
 
@@ -207,11 +207,11 @@ def get_caseIDs_by_keywords(word: str):
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
     cur = con.cursor()
-    reqstr = f"SELECT caseID, keywords FROM matching_table WHERE keywords LIKE '%{word}%'"
+    reqstr = f"SELECT caseID FROM matching_table WHERE primary_keywords LIKE '%{word}%' OR secondary_keywords LIKE '%{word}'"
     cur.execute(reqstr)
     cID = []
-    for (caseID, keywords) in cur:
-        cID.append(caseID)
+    for (caseID) in cur:
+        cID.append(caseID[0])
     if len(cID) == 0:
         con.close()
         return None
@@ -234,10 +234,31 @@ def get_weight_of_keyword(keyword: str) -> float:
     reqstr = f"SELECT weight FROM weights WHERE keyword='{keyword}'"
     cur.execute(reqstr)
     wgt = None
-    for (weight) in cur:
-        wgt = weight
+    for weight in cur:
+        wgt = weight[0]
     con.close()
     return wgt
+
+
+def get_primary_keywords_by_caseID(caseID: int):
+    try:
+        con = connect(
+            host='127.0.0.1',
+            port=3306,
+            user="naouser",
+            password="Asube-2015!",
+            database="nao")
+    except Error as e:
+        print("Error connecting to MariaDB Platform: ", e)
+        sys.exit(1)
+    cur = con.cursor()
+    reqstr = f"SELECT primary_keywords FROM matching_table WHERE caseID='{caseID}'"
+    cur.execute(reqstr)
+    pri_key = None
+    for (primary_keywords) in cur:
+        pri_key = primary_keywords[0]
+    con.close()
+    return pri_key
 
 
 def get_weights():

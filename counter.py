@@ -31,21 +31,39 @@ def check_list(counter: list, case_id: int, weight: float) -> list:
 
 
 def check_for_highest_id(question: list, counter: list) -> int:
-    highest = None
+    highest_count = None
     case_id = None
-    possible_case_id = None
     i = 0
     if counter is None:
         return None
     while i < len(counter):
-        if highest is None:
-            highest = counter[i].get("count")
+        if highest_count is None:
+            highest_count = counter[i].get("count")
             case_id = counter[i].get("case_id")
-        elif highest < counter[i].get("count"):
-            highest = counter[i].get("count")
+        elif highest_count < counter[i].get("count"):
+            highest_count = counter[i].get("count")
             case_id = counter[i].get("case_id")
-        elif highest == counter[i].get("count"):
-            possible_case_id = counter[i].get("case_id")
-            case_id = Abfrage3(question, case_id, possible_case_id)
+        elif highest_count == counter[i].get("count"):
+            t_case_id = check_for_higher_id(question, case_id, counter[i].get("case_id"))
+            if t_case_id is not None:
+                case_id = t_case_id
         i += 1
     return case_id
+
+
+def check_for_higher_id(question: list, case_id: int, new_case_id: int) -> int:
+    case_id_keywords = db_connector.get_primary_keywords_by_caseID(case_id)
+    case_id_counter = 0
+    new_case_id_keywords = db_connector.get_primary_keywords_by_caseID(new_case_id)
+    new_case_id_counter = 0
+    if case_id_keywords is None or new_case_id_keywords is None:
+        return None
+    for word in question:
+        if word in case_id_keywords:
+            case_id_counter += 1
+        if word in new_case_id_keywords:
+            new_case_id_counter += 1
+    if case_id_counter >= new_case_id_counter:
+        return case_id
+    else:
+        return new_case_id
