@@ -12,6 +12,7 @@ def count_ids(question: list) -> int:
             continue
         for case_id in ids:
             counter = check_list(counter, case_id, keyword_weight)
+    print(counter)
     return check_for_highest_id(question, counter)
 
 
