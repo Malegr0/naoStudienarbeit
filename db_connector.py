@@ -191,7 +191,7 @@ def get_answer(case_id: int) -> str:
     cur.execute(reqstr)
     ans = None
     for (answer, caseID) in cur:
-        ans = answer
+        ans = answer[0]
     con.close()
     return ans
 
@@ -257,7 +257,7 @@ def get_primary_keywords_by_caseID(caseID: int):
     cur.execute(reqstr)
     pri_key = None
     for (primary_keywords) in cur:
-        pri_key = primary_keywords
+        pri_key = primary_keywords[0]
     con.close()
     return pri_key
 
