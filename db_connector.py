@@ -236,6 +236,8 @@ def get_weight_of_keyword(keyword: str) -> float:
     wgt = None
     for weight in cur:
         wgt = weight[0]
+    if wgt is None:
+        wgt = 0
     con.close()
     return wgt
 
