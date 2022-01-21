@@ -44,7 +44,7 @@
   {
     "caseID": 8,
     "primary_keywords": "studieninhalte,inhalte,studium",
-    "secondary_keywords": "was,geben,welch,machen,im,in,dies,dual,enthalten",
+    "secondary_keywords": "was,haben,welch,machen,im,in,dies,dual,enthalten",
     "answer": "Das Studium setzt sich aus Grundlagen wie Mathematik, Programmieren, Software-Engineering und vielen weiteren Modulen zusammen. Dabei werden gesellschaftliche und juristische Aspekte, Problematiken und deren L\u00f6sungsans\u00e4tze sowie grunds\u00e4tzliches, fachliches Wissen vermittelt und praktisch erl\u00e4utert."
   },
   {
@@ -74,7 +74,7 @@
   {
     "caseID": 13,
     "primary_keywords": "modul",
-    "secondary_keywords": "welch,geben,studium,existieren",
+    "secondary_keywords": "welch,haben,studium,existieren",
     "answer": "Das Studium besteht aus folgenden Modulen. Die Grundlagen bestehen aus Mathematik, Programmieren, technische Grundlagen der Informatik und theoretischer Informatik. Die \u00fcbergreifenden Inhalte sind Betriebswirtschaftslehre, Gesellschaftliche und juristische Aspekte der Informatik, Projektmanagement, Softwareengineering, Betriebssysteme, Datenbanken und Netzwerke. Als Wahlpflichtf\u00e4cher kann man zwischen Grafik und Multimedia, Kommunikationssysteme, Mobile Systeme und K\u00fcnstliche Intelligenz."
   },
   {
@@ -85,8 +85,8 @@
   },
   {
     "caseID": 15,
-    "primary_keywords": "wann,gr\u00fcnden,jahr",
-    "secondary_keywords": "hwr,\u00f6ffnen,geben,seit,viel",
+    "primary_keywords": "wann,gr\u00fcnden,jahr,lang",
+    "secondary_keywords": "hwr,\u00f6ffnen,haben,seit,viel",
     "answer": "Die HWR, so wie sie heute bekannt ist, gibt es seit 2009. Sie hat sich aus dem Zusammenschluss der Berlin School of Economics und der Fachhochschule f\u00fcr Verwaltung und Rechtspflege Berlin ergeben."
   },
   {
@@ -98,25 +98,25 @@
   {
     "caseID": 17,
     "primary_keywords": "standort,wo,viel",
-    "secondary_keywords": "welch,hwr,wie,haben,\u00fcberall,vertreten",
-    "answer": "Die Hochschule f\u00fcr Wirtschaft und Recht hat 2 Hauptstandorte und einen Zweitstandort. Die Hauptstandorte liegen in Lichtenberg und in Sch\u00f6neberg. Der Campus Sch\u00f6neberg und der Standort an der M\u00f6ckernbr\u00fccke werden vom Fachbereich 1 genutzt, w\u00e4hrend der Campus Lichtenberg von den anderen Fachbereichen verwendet wird."
+    "secondary_keywords": "welch,hwr,wie,haben,\u00fcberall",
+    "answer": "Die Hochschule f\u00fcr Wirtschaft und Recht hat 2 Standorte. Diese liegen in Lichtenberg und in Sch\u00f6neberg. Der Campus Sch\u00f6neberg und der Standort an der M\u00f6ckernbr\u00fccke werden vom Fachbereich 1 genutzt, w\u00e4hrend der Campus Lichtenberg von den anderen Fachbereichen verwendet wird."
   },
   {
     "caseID": 18,
     "primary_keywords": "viel,fachbereich",
-    "secondary_keywords": "wie,hwr,welch,geben,haben,an,was,f\u00fcr,existieren",
+    "secondary_keywords": "wie,hwr,welch,haben,an,was,f\u00fcr,existieren",
     "answer": "Die HWR hat 5 Fachbereiche. Diese sind Fachbereich 1 f\u00fcr Wirtschaftswissenschaften, Fachbereich 2 f\u00fcr duales Studium, Fachbereich 3 f\u00fcr Allgemeine Verwaltung, Fachbereich 4 f\u00fcr Rechtspflege und Fachbereich 5 f\u00fcr Polizei und Sicherheitsmanagement."
   },
   {
     "caseID": 19,
     "primary_keywords": "viel,studiengang",
-    "secondary_keywords": "wie,geben,haben,an,hwr,existieren",
+    "secondary_keywords": "wie,haben,an,hwr,existieren",
     "answer": "Es gibt zurzeit 56 Studieng\u00e4nge, welche in Bachelor, Master, Fernstudium, duales Studium und berufsbegleitendes Studium unterteilt werden. Davon sind 18 duale Studieng\u00e4nge."
   },
   {
     "caseID": 20,
     "primary_keywords": "welch,studiengang,was",
-    "secondary_keywords": "haben,geben,an,hwr,f\u00fcr,bieten,existieren",
+    "secondary_keywords": "haben,an,hwr,f\u00fcr,bieten,existieren",
     "answer": "Die Studieng\u00e4nge kann man grob in technische und wirtschaftliche Studieng\u00e4nge unterteilen. Zu den technischen Studieng\u00e4ngen geh\u00f6ren unter anderem Bau-ingenieurwesen, Informatik und industrielle Elektrotechnik. Im Wirtschaftsbereich gibt es zum Beispiel BWL-Industrie und Wirtschaftsinformatik."
   },
   {
