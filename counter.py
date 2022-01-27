@@ -37,8 +37,6 @@ def check_for_highest_id(question: list, counter: list) -> int:
     if counter is None:
         return None
     while i < len(counter):
-        print("Aktuell höchstes Gewicht" + str(counter[i].get("count")))
-        print("Aktuell höchste Case ID" + str(counter[i].get("case_id")))
         if highest_count is None:
             highest_count = counter[i].get("count")
             case_id = counter[i].get("case_id")
