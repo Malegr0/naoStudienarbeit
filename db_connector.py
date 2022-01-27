@@ -207,7 +207,7 @@ def get_caseIDs_by_keywords(word: str):
         print("Error connecting to MariaDB Platform: ", e)
         sys.exit(1)
     cur = con.cursor()
-    reqstr = f"SELECT caseID FROM matching_table WHERE primary_keywords LIKE '%{word}%' OR secondary_keywords LIKE '%{word}'"
+    reqstr = f"SELECT caseID FROM matching_table WHERE primary_keywords LIKE '%{word}%' OR secondary_keywords LIKE '%{word}%'"
     cur.execute(reqstr)
     cID = []
     for (caseID) in cur:
