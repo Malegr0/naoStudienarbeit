@@ -20,7 +20,7 @@
   {
     "caseID": 4,
     "primary_keywords": "dual,studiengang,studium,bewerben",
-    "secondary_keywords": "wie,f\u00fcr,wo,und,informatikstudium,informatik",
+    "secondary_keywords": "wie,f\u00fcr,wo,und,informatikstudium,informatik,an,hwr",
     "answer": "Die Bewerbung f\u00fcr duale Studieng\u00e4nge l\u00e4uft direkt \u00fcber die Partnerunternehmen der jeweiligen Studieng\u00e4nge an der HWR Berlin. Bitte beachte: Bei vielen Partnerunternehmen solltest du dich ein Jahr vor Studienbeginn bewerben. Auf der Webseite der HWR findest du auch eine Liste mit allen Partnerunternehmen f\u00fcr jeden Studiengang. Bei weiteren Fragen unterst\u00fctzt dich auch gerne die Studienberatung."
   },
   {
@@ -37,15 +37,15 @@
   },
   {
     "caseID": 7,
-    "primary_keywords": "informatik,studiengang",
-    "secondary_keywords": "erz\u00e4hlen,informatikstudium,\u00fcber,was",
+    "primary_keywords": "studiengang",
+    "secondary_keywords": "erz\u00e4hlen,informatik,informatikstudium,\u00fcber,was",
     "answer": "Der duale Studiengang Informatik ist einer von derzeit 18 dualen Studieng\u00e4ngen an der HWR. Die Dauer des Studiums betr\u00e4gt 6 Semester und umfasst mehrere unterschiedliche Module, die Grundwissen und fortgeschrittenes Anwendungswissen vermitteln sollen. Dazu geh\u00f6ren beispielsweise Betriebssysteme, Datenbanken, Software-Engineering, Programmierung und mathematische Module wie Statistik und Datenanalyse. Am Campus Lichtenberg findet der theoretische Teil statt, wobei Probleme und L\u00f6sungsm\u00f6glichkeiten, spezielle Methoden, kleine Anwendungsbeispiele und theoretisches Wissen vermittelt wird. Der Praxisteil findet im Unternehmen statt und umfasst abteilungsabh\u00e4ngige Aufgaben, die mit dem Theoriewissen einhergehen k\u00f6nnen."
   },
   {
     "caseID": 8,
     "primary_keywords": "studieninhalte,inhalte,studium",
     "secondary_keywords": "was,haben,welch,machen,im,in,dies,dual,enthalten",
-    "answer": "Das Studium setzt sich aus Grundlagen wie Mathematik, Programmieren, Software-Engineering und vielen weiteren Modulen zusammen. Dabei werden gesellschaftliche und juristische Aspekte, Problematiken und deren L\u00f6sungsans\u00e4tze sowie grunds\u00e4tzliches, fachliches Wissen vermittelt und praktisch erl\u00e4utert."
+    "answer": "Das Informatikstudium setzt sich aus Grundlagen wie Mathematik, Programmieren, Software-Engineering und vielen weiteren Modulen zusammen. Dabei werden gesellschaftliche und juristische Aspekte, Problematiken und deren L\u00f6sungsans\u00e4tze sowie grunds\u00e4tzliches, fachliches Wissen vermittelt und praktisch erl\u00e4utert."
   },
   {
     "caseID": 9,
@@ -69,13 +69,13 @@
     "caseID": 12,
     "primary_keywords": "viel,schreiben,oft",
     "secondary_keywords": "wie,ptb,studienarbeit,studium,w\u00e4hrend",
-    "answer": "Im Verlaufe des Studiums werden drei PTBs in den ersten drei Semestern und zwei Studienarbeiten im vierten und f\u00fcnften Semester geschrieben. Im sechsten Semester wird eine Bachelorthesis als Abschlussarbeit verfasst."
+    "answer": "Im Verlaufe des Studiums werden drei PTBs in den ersten drei Semestern und zwei Studienarbeiten im vierten und f\u00fcnften Semester geschrieben. Abh\u00e4ngig vom Studiengang kann anstelle der Studienarbeit im f\u00fcnften Semester eine m\u00fcndlichge Trasnferpr\u00fcfung abgehalten werden. Im sechsten Semester wird dann eine Bachelorthesis als Abschlussarbeit verfasst."
   },
   {
     "caseID": 13,
-    "primary_keywords": "modul",
-    "secondary_keywords": "welch,haben,studium,existieren",
-    "answer": "Das Studium besteht aus folgenden Modulen. Die Grundlagen bestehen aus Mathematik, Programmieren, technische Grundlagen der Informatik und theoretischer Informatik. Die \u00fcbergreifenden Inhalte sind Betriebswirtschaftslehre, Gesellschaftliche und juristische Aspekte der Informatik, Projektmanagement, Softwareengineering, Betriebssysteme, Datenbanken und Netzwerke. Als Wahlpflichtf\u00e4cher kann man zwischen Grafik und Multimedia, Kommunikationssysteme, Mobile Systeme und K\u00fcnstliche Intelligenz."
+    "primary_keywords": "modul,haben",
+    "secondary_keywords": "welch,studium,existieren,was,f\u00fcr",
+    "answer": "Das Informatikstudium besteht aus folgenden Modulen. Die Grundlagen bestehen aus Mathematik, Programmieren, technische Grundlagen der Informatik und theoretischer Informatik. Die \u00fcbergreifenden Inhalte sind Betriebswirtschaftslehre, Gesellschaftliche und juristische Aspekte der Informatik, Projektmanagement, Softwareengineering, Betriebssysteme, Datenbanken und Netzwerke. Als Wahlpflichtf\u00e4cher kann man zwischen Grafik und Multimedia, Kommunikationssysteme, Mobile Systeme und K\u00fcnstliche Intelligenz."
   },
   {
     "caseID": 14,
@@ -134,7 +134,7 @@
   {
     "caseID": 23,
     "primary_keywords": "hei\u00dfen,name",
-    "secondary_keywords": "wie,was,lauten,wer",
+    "secondary_keywords": "wie,was,lauten,wer,nennen",
     "answer": "Mein Name ist NAO. Ich bin ein humanoider Roboter."
   },
   {
